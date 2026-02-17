@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Wellness Circle — SOULFRUT Community</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Wellness Circle  SOULFRUT Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=Playfair+Display:ital,wght@0,400;1,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root {
   --orange:#FF5E1A; --orange-dim:rgba(255,94,26,0.15);
@@ -218,181 +219,163 @@ body::after{content:'';position:fixed;inset:0;
 </style>
 </head>
 <body>
-
 <!-- TOPBAR -->
 <div class="topbar">
-  <a href="soulfrut.html" class="topbar-logo">
-    <img src="images/logo-cream.JPG" alt="Soulfrut">
-    <span>Soul<em>frut</em></span>
-  </a>
-  <div class="topbar-right">
-    <a href="soulfrut.html" class="back-link">← Back to Site</a>
-    <button class="post-btn" onclick="openComposer()">+ Share Your Journey</button>
-  </div>
+<a class="topbar-logo" href="soulfrut.html">
+<img alt="Soulfrut" src="images/logo-cream.JPG"/>
+<span>Soul<em>frut</em></span>
+</a>
+<div class="topbar-right">
+<a class="back-link" href="soulfrut.html">← Back to Site</a>
+<button class="post-btn" onclick="openComposer()">+ Share Your Journey</button>
 </div>
-
+</div>
 <!-- LAYOUT -->
 <div class="layout">
-
-  <!-- ═══ SIDEBAR LEFT ═══ -->
-  <aside class="sidebar-left">
-    <div class="sidebar-section">
-      <span class="sidebar-title">Wellness Categories</span>
-      <ul class="cat-filter" id="catFilter">
-        <li><a onclick="setFilter('all')" class="active"><span class="cat-icon"></span> All Posts <span class="cat-count" id="count-all">0</span></a></li>
-        <li><a onclick="setFilter('physical')"><span class="cat-icon"></span> Physical <span class="cat-count" id="count-physical">0</span></a></li>
-        <li><a onclick="setFilter('mental')"><span class="cat-icon"></span> Mental <span class="cat-count" id="count-mental">0</span></a></li>
-        <li><a onclick="setFilter('nutrition')"><span class="cat-icon"></span> Nutrition <span class="cat-count" id="count-nutrition">0</span></a></li>
-        <li><a onclick="setFilter('financial')"><span class="cat-icon"></span> Financial <span class="cat-count" id="count-financial">0</span></a></li>
-        <li><a onclick="setFilter('spiritual')"><span class="cat-icon"></span> Spiritual <span class="cat-count" id="count-spiritual">0</span></a></li>
-      </ul>
-    </div>
-
-    <div class="sidebar-section">
-      <span class="sidebar-title">Your Streak</span>
-      <div class="streak-card">
-        <div class="streak-num" id="streakNum">1</div>
-        <div class="streak-label">Day Streak </div>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <span class="sidebar-title">Wellness Badges</span>
-      <div class="pillar-badges">
-        <div class="pillar-badge earned"><span class="pillar-badge-icon"></span> Physical Warrior</div>
-        <div class="pillar-badge earned"><span class="pillar-badge-icon"></span> Nutrition Aligned</div>
-        <div class="pillar-badge"><span class="pillar-badge-icon"></span> Mind Master</div>
-        <div class="pillar-badge"><span class="pillar-badge-icon"></span> Wealth Builder</div>
-        <div class="pillar-badge"><span class="pillar-badge-icon"></span> Soul Elevated</div>
-      </div>
-    </div>
-  </aside>
-
-  <!-- ═══ MAIN FEED ═══ -->
-  <main class="feed-main">
-
-    <!-- Join Prompt (shown if no username) -->
-    <div class="join-prompt" id="joinPrompt">
-      <h3>Welcome to the Wellness Circle</h3>
-      <p>Share your name to post your journey and connect with the Soulfrut community.</p>
-      <div class="join-form">
-        <input type="text" class="join-input" id="usernameInput" placeholder="Your first name..." maxlength="20">
-        <button class="join-submit" onclick="joinCommunity()">Join →</button>
-      </div>
-    </div>
-
-    <!-- Post Composer (hidden until joined) -->
-    <div class="composer" id="composer" style="display:none">
-      <div class="composer-header">
-        <div class="composer-avatar" id="composerAvatar">?</div>
-        <div>
-          <div class="composer-name" id="composerName">Member</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.3)">Share your wellness journey</div>
-        </div>
-      </div>
-      <div class="composer-body">
-        <div class="composer-cats">
-          <button class="cat-pill physical" onclick="selectCat('physical',this)"> Physical</button>
-          <button class="cat-pill mental" onclick="selectCat('mental',this)"> Mental</button>
-          <button class="cat-pill nutrition" onclick="selectCat('nutrition',this)"> Nutrition</button>
-          <button class="cat-pill financial" onclick="selectCat('financial',this)"> Financial</button>
-          <button class="cat-pill spiritual" onclick="selectCat('spiritual',this)"> Spiritual</button>
-        </div>
-        <textarea class="composer-input" id="postInput" placeholder="What's your wellness win today? Share your journey..." maxlength="500"></textarea>
-        <div class="composer-footer">
-          <span class="composer-footer-left" id="charCount">500 characters left</span>
-          <button class="post-submit-btn" id="postSubmitBtn" onclick="submitPost()" disabled>Post to Community</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feed Filters -->
-    <div class="feed-filters" id="feedFilters" style="display:none">
-      <button class="feed-filter active" onclick="setFeedSort('recent',this)">Most Recent</button>
-      <button class="feed-filter" onclick="setFeedSort('top',this)">Top Posts</button>
-      <button class="feed-filter" onclick="setFeedSort('mine',this)">My Posts</button>
-    </div>
-
-    <!-- Posts Feed -->
-    <div id="postsFeed"></div>
-
-  </main>
-
-  <!-- ═══ SIDEBAR RIGHT ═══ -->
-  <aside class="sidebar-right">
-
-    <div class="sidebar-section">
-      <span class="sidebar-title">Trending Topics</span>
-      <div>
-        <div class="trending-tag" onclick="setFilter('physical')">
-          <span class="trending-tag-name">#MorningFuel</span>
-          <span class="trending-tag-count">47 posts</span>
-        </div>
-        <div class="trending-tag" onclick="setFilter('mental')">
-          <span class="trending-tag-name">#MindsetShift</span>
-          <span class="trending-tag-count">38 posts</span>
-        </div>
-        <div class="trending-tag" onclick="setFilter('nutrition')">
-          <span class="trending-tag-name">#SoulBoxDrops</span>
-          <span class="trending-tag-count">31 posts</span>
-        </div>
-        <div class="trending-tag" onclick="setFilter('financial')">
-          <span class="trending-tag-name">#FinancialWellness</span>
-          <span class="trending-tag-count">24 posts</span>
-        </div>
-        <div class="trending-tag" onclick="setFilter('spiritual')">
-          <span class="trending-tag-name">#IntentionalLiving</span>
-          <span class="trending-tag-count">19 posts</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="sidebar-section">
-      <span class="sidebar-title">Active Members</span>
-      <div>
-        <div class="member-item">
-          <div class="member-avatar" style="background:linear-gradient(135deg,#FF5E1A,#ff9a56)">TK</div>
-          <div class="member-info">
-            <div class="member-name">Tiana K.</div>
-            <div class="member-streak"> 14 day streak</div>
-          </div>
-        </div>
-        <div class="member-item">
-          <div class="member-avatar" style="background:linear-gradient(135deg,#5A2D82,#7B4DB0)">MJ</div>
-          <div class="member-info">
-            <div class="member-name">Marcus J.</div>
-            <div class="member-streak"> 9 day streak</div>
-          </div>
-        </div>
-        <div class="member-item">
-          <div class="member-avatar" style="background:linear-gradient(135deg,#00C9A7,#2ECC71)">AS</div>
-          <div class="member-info">
-            <div class="member-name">Asha S.</div>
-            <div class="member-streak"> 7 day streak</div>
-          </div>
-        </div>
-        <div class="member-item">
-          <div class="member-avatar" style="background:linear-gradient(135deg,#E8D5B5,#c9a55c)">DJ</div>
-          <div class="member-info">
-            <div class="member-name">Devon J.</div>
-            <div class="member-streak"> 5 day streak</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="soulbox-promo">
-      <h4>Soul Box</h4>
-      <p>Monthly wellness subscription. Blends, teas, affirmations + member perks. $39/month.</p>
-      <a href="soulfrut.html#soulbox" class="soulbox-promo-btn">Subscribe Now →</a>
-    </div>
-
-  </aside>
+<!-- ═══ SIDEBAR LEFT ═══ -->
+<aside class="sidebar-left">
+<div class="sidebar-section">
+<span class="sidebar-title">Wellness Categories</span>
+<ul class="cat-filter" id="catFilter">
+<li><a class="active" onclick="setFilter('all')"><span class="cat-icon"></span> All Posts <span class="cat-count" id="count-all">0</span></a></li>
+<li><a onclick="setFilter('physical')"><span class="cat-icon"></span> Physical <span class="cat-count" id="count-physical">0</span></a></li>
+<li><a onclick="setFilter('mental')"><span class="cat-icon"></span> Mental <span class="cat-count" id="count-mental">0</span></a></li>
+<li><a onclick="setFilter('nutrition')"><span class="cat-icon"></span> Nutrition <span class="cat-count" id="count-nutrition">0</span></a></li>
+<li><a onclick="setFilter('financial')"><span class="cat-icon"></span> Financial <span class="cat-count" id="count-financial">0</span></a></li>
+<li><a onclick="setFilter('spiritual')"><span class="cat-icon"></span> Spiritual <span class="cat-count" id="count-spiritual">0</span></a></li>
+</ul>
 </div>
-
+<div class="sidebar-section">
+<span class="sidebar-title">Your Streak</span>
+<div class="streak-card">
+<div class="streak-num" id="streakNum">1</div>
+<div class="streak-label">Day Streak </div>
+</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-title">Wellness Badges</span>
+<div class="pillar-badges">
+<div class="pillar-badge earned"><span class="pillar-badge-icon"></span> Physical Warrior</div>
+<div class="pillar-badge earned"><span class="pillar-badge-icon"></span> Nutrition Aligned</div>
+<div class="pillar-badge"><span class="pillar-badge-icon"></span> Mind Master</div>
+<div class="pillar-badge"><span class="pillar-badge-icon"></span> Wealth Builder</div>
+<div class="pillar-badge"><span class="pillar-badge-icon"></span> Soul Elevated</div>
+</div>
+</div>
+</aside>
+<!-- ═══ MAIN FEED ═══ -->
+<main class="feed-main">
+<!-- Join Prompt (shown if no username) -->
+<div class="join-prompt" id="joinPrompt">
+<h3>Welcome to the Wellness Circle</h3>
+<p>Share your name to post your journey and connect with the Soulfrut community.</p>
+<div class="join-form">
+<input class="join-input" id="usernameInput" maxlength="20" placeholder="Your first name..." type="text"/>
+<button class="join-submit" onclick="joinCommunity()">Join →</button>
+</div>
+</div>
+<!-- Post Composer (hidden until joined) -->
+<div class="composer" id="composer" style="display:none">
+<div class="composer-header">
+<div class="composer-avatar" id="composerAvatar">?</div>
+<div>
+<div class="composer-name" id="composerName">Member</div>
+<div style="font-size:11px;color:rgba(255,255,255,0.3)">Share your wellness journey</div>
+</div>
+</div>
+<div class="composer-body">
+<div class="composer-cats">
+<button class="cat-pill physical" onclick="selectCat('physical',this)"> Physical</button>
+<button class="cat-pill mental" onclick="selectCat('mental',this)"> Mental</button>
+<button class="cat-pill nutrition" onclick="selectCat('nutrition',this)"> Nutrition</button>
+<button class="cat-pill financial" onclick="selectCat('financial',this)"> Financial</button>
+<button class="cat-pill spiritual" onclick="selectCat('spiritual',this)"> Spiritual</button>
+</div>
+<textarea class="composer-input" id="postInput" maxlength="500" placeholder="What's your wellness win today? Share your journey..."></textarea>
+<div class="composer-footer">
+<span class="composer-footer-left" id="charCount">500 characters left</span>
+<button class="post-submit-btn" disabled="" id="postSubmitBtn" onclick="submitPost()">Post to Community</button>
+</div>
+</div>
+</div>
+<!-- Feed Filters -->
+<div class="feed-filters" id="feedFilters" style="display:none">
+<button class="feed-filter active" onclick="setFeedSort('recent',this)">Most Recent</button>
+<button class="feed-filter" onclick="setFeedSort('top',this)">Top Posts</button>
+<button class="feed-filter" onclick="setFeedSort('mine',this)">My Posts</button>
+</div>
+<!-- Posts Feed -->
+<div id="postsFeed"></div>
+</main>
+<!-- ═══ SIDEBAR RIGHT ═══ -->
+<aside class="sidebar-right">
+<div class="sidebar-section">
+<span class="sidebar-title">Trending Topics</span>
+<div>
+<div class="trending-tag" onclick="setFilter('physical')">
+<span class="trending-tag-name">#MorningFuel</span>
+<span class="trending-tag-count">47 posts</span>
+</div>
+<div class="trending-tag" onclick="setFilter('mental')">
+<span class="trending-tag-name">#MindsetShift</span>
+<span class="trending-tag-count">38 posts</span>
+</div>
+<div class="trending-tag" onclick="setFilter('nutrition')">
+<span class="trending-tag-name">#SoulBoxDrops</span>
+<span class="trending-tag-count">31 posts</span>
+</div>
+<div class="trending-tag" onclick="setFilter('financial')">
+<span class="trending-tag-name">#FinancialWellness</span>
+<span class="trending-tag-count">24 posts</span>
+</div>
+<div class="trending-tag" onclick="setFilter('spiritual')">
+<span class="trending-tag-name">#IntentionalLiving</span>
+<span class="trending-tag-count">19 posts</span>
+</div>
+</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-title">Active Members</span>
+<div>
+<div class="member-item">
+<div class="member-avatar" style="background:linear-gradient(135deg,#FF5E1A,#ff9a56)">TK</div>
+<div class="member-info">
+<div class="member-name">Tiana K.</div>
+<div class="member-streak"> 14 day streak</div>
+</div>
+</div>
+<div class="member-item">
+<div class="member-avatar" style="background:linear-gradient(135deg,#5A2D82,#7B4DB0)">MJ</div>
+<div class="member-info">
+<div class="member-name">Marcus J.</div>
+<div class="member-streak"> 9 day streak</div>
+</div>
+</div>
+<div class="member-item">
+<div class="member-avatar" style="background:linear-gradient(135deg,#00C9A7,#2ECC71)">AS</div>
+<div class="member-info">
+<div class="member-name">Asha S.</div>
+<div class="member-streak"> 7 day streak</div>
+</div>
+</div>
+<div class="member-item">
+<div class="member-avatar" style="background:linear-gradient(135deg,#E8D5B5,#c9a55c)">DJ</div>
+<div class="member-info">
+<div class="member-name">Devon J.</div>
+<div class="member-streak"> 5 day streak</div>
+</div>
+</div>
+</div>
+</div>
+<div class="soulbox-promo">
+<h4>Soul Box</h4>
+<p>Monthly wellness subscription. Blends, teas, affirmations + member perks. $39/month.</p>
+<a class="soulbox-promo-btn" href="soulfrut.html#soulbox">Subscribe Now →</a>
+</div>
+</aside>
+</div>
 <!-- Toast -->
 <div class="toast" id="toast"></div>
-
 <script>
 // ═══ STATE ═══
 let currentUser = localStorage.getItem('sf_username') || null;
