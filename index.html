@@ -266,7 +266,7 @@ nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);
 .poss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px;margin-top:60px;border:1px solid rgba(255,94,26,0.12);border-radius:20px;overflow:hidden}
 .poss-card{background:rgba(12,4,24,0.7);backdrop-filter:blur(12px);padding:40px 32px;text-align:left;border:1px solid rgba(255,94,26,0.06);transition:background .3s,border-color .3s;display:flex;flex-direction:column;gap:12px}
 .poss-card:hover{background:rgba(45,10,78,0.5);border-color:rgba(255,94,26,0.2)}
-.poss-icon{font-size:32px;line-height:1}
+.poss-icon{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:var(--orange);opacity:.6;letter-spacing:2px}
 .poss-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1.5px;color:var(--cream);line-height:1.1}
 .poss-desc{font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(232,213,181,0.5);line-height:1.7;flex:1}
 .poss-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);opacity:.7;margin-top:auto}
@@ -691,7 +691,7 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
     <h2 class="bo-quote">Competitors <span class="hl">sell drinks.</span><br>SOUL FRUT sells <span class="hl">transformation.</span></h2>
     <div class="bo-line"></div>
     <p class="bo-sub">"We are not in the smoothie business. We are in the intentional living business — and the smoothie is the entry point into a lifestyle ecosystem that impacts your body, your mind, your money, and your community."</p>
-    <div class="bo-badge">✦ &nbsp; Intentional Living Fuel™ &nbsp; ✦</div>
+    <div class="bo-badge"> &nbsp; Intentional Living Fuel™ &nbsp; </div>
   </div>
 </section>
 
@@ -781,17 +781,17 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
       <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:20px;margin-bottom:8px;">College campuses are closed ecosystems with high word-of-mouth velocity, repeat customers on predictable schedules, and cultural influence that radiates outward. We don't just sell on campus — we own the culture.</p>
       <div class="campus-grid">
         <div class="campus-card">
-          <div class="campus-card-icon">🏫</div>
+          <div class="campus-card-icon"></div>
           <div class="campus-card-name">Georgia Tech</div>
           <div class="campus-card-status cs-active">● Active</div>
         </div>
         <div class="campus-card">
-          <div class="campus-card-icon">🔶</div>
+          <div class="campus-card-icon"></div>
           <div class="campus-card-name">Spelman College</div>
           <div class="campus-card-status cs-next">▶ Next</div>
         </div>
         <div class="campus-card">
-          <div class="campus-card-icon">🔶</div>
+          <div class="campus-card-icon"></div>
           <div class="campus-card-name">Morehouse College</div>
           <div class="campus-card-status cs-next">▶ Next</div>
         </div>
@@ -820,9 +820,9 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
       <div class="partner-wrap">
         <span class="partner-label">Confirmed Partners</span>
         <div class="partner-row">
-          <div class="partner-chip"><span>⚡</span> Red Bull</div>
-          <div class="partner-chip"><span>🍗</span> Pot O Wings</div>
-          <div class="partner-chip"><span>🏫</span> Georgia Tech</div>
+          <div class="partner-chip"><span></span> Red Bull</div>
+          <div class="partner-chip"><span></span> Pot O Wings</div>
+          <div class="partner-chip"><span></span> Georgia Tech</div>
         </div>
       </div>
 
@@ -1029,7 +1029,7 @@ function selectBowl(btn, id) {
   </div>
   <div class="prod-grid">
     <div class="prod-card">
-      <span class="prod-icon">💪</span>
+      <span class="prod-icon"></span>
       <div class="prod-name">PROTEIN POWER PACKET</div>
       <div class="prod-tagline">Perform · Recover · Rebuild</div>
       <p class="prod-desc">25g of clean whey + plant protein per serving, formulated around performance and recovery. No fillers, no fake sweeteners — just intentional fuel designed for people who move with purpose. Mixes instantly into any smoothie or water.</p>
@@ -1038,7 +1038,7 @@ function selectBowl(btn, id) {
       </div>
     </div>
     <div class="prod-card">
-      <span class="prod-icon">🌿</span>
+      <span class="prod-icon"></span>
       <div class="prod-name">MOOD SMOOTHIE BLEND</div>
       <div class="prod-tagline">Energize · Elevate · Align</div>
       <p class="prod-desc">A mood-coded blend of adaptogens, superfoods, and functional mushrooms tuned to your energy state. Available in four formulations — Focus, Calm, Elevate, and Restore — each with specific ingredient profiles for specific states of mind.</p>
@@ -1047,7 +1047,7 @@ function selectBowl(btn, id) {
       </div>
     </div>
     <div class="prod-card">
-      <span class="prod-icon">💧</span>
+      <span class="prod-icon"></span>
       <div class="prod-name">RECOVERY HYDRATION MIX</div>
       <div class="prod-tagline">Rehydrate · Replenish · Reset</div>
       <p class="prod-desc">Electrolyte-dense hydration packets built for full recovery — post-workout, post-late night, or any time your body needs to reset. Clinical-dose electrolytes with coconut water powder and trace minerals. Zero sugar, full impact.</p>
@@ -1056,7 +1056,7 @@ function selectBowl(btn, id) {
       </div>
     </div>
     <div class="prod-card">
-      <span class="prod-icon">🧠</span>
+      <span class="prod-icon"></span>
       <div class="prod-name">BRAIN-FOCUS BLEND</div>
       <div class="prod-tagline">Clarity · Memory · Flow State</div>
       <p class="prod-desc">Nootropic-forward formula for students, entrepreneurs, and creatives who need to be sharp without the crash. Sustained cognitive energy through clean adaptogens and brain-specific nutrients — no jitters, no burnout, just flow.</p>
@@ -1065,7 +1065,7 @@ function selectBowl(btn, id) {
       </div>
     </div>
     <div class="prod-card">
-      <span class="prod-icon">🌙</span>
+      <span class="prod-icon"></span>
       <div class="prod-name">STRESS-RELIEF TEA BLEND</div>
       <div class="prod-tagline">Decompress · Rest · Restore</div>
       <p class="prod-desc">An evening ritual in a cup — a functional herbal blend designed to lower cortisol, calm the nervous system, and support deep sleep. For the version of you that grinds all day and needs to actually decompress at night.</p>
@@ -1074,7 +1074,7 @@ function selectBowl(btn, id) {
       </div>
     </div>
     <div class="prod-card">
-      <span class="prod-icon">🔥</span>
+      <span class="prod-icon"></span>
       <div class="prod-name">SOUL BUNDLE PACK</div>
       <div class="prod-tagline">The Complete System</div>
       <p class="prod-desc">All five formulations in one curated monthly system — designed to cover every dimension of your wellness from morning to night. The full Soul Frut ritual, packaged for wherever life takes you. Available exclusively through the Soul Box subscription.</p>
@@ -1101,37 +1101,37 @@ function selectBowl(btn, id) {
   </div>
   <div class="beyond-grid">
     <div class="beyond-card">
-      <div class="beyond-icon">🥤</div>
+      <div class="beyond-icon"></div>
       <div class="beyond-num">01</div>
       <div class="beyond-name">THE FRESH BAR</div>
       <p class="beyond-desc">Our flagship — nutrient-dense smoothies, refreshers, protein drinks, and bowls formulated around mood, performance, and recovery. The foundation everything else is built on.</p>
     </div>
     <div class="beyond-card">
-      <div class="beyond-icon">🎓</div>
+      <div class="beyond-icon"></div>
       <div class="beyond-num">02</div>
       <div class="beyond-name">SOUL FRUT ACADEMY</div>
       <p class="beyond-desc">Wellness education for the culture. In-person workshops, digital courses, and certification programs on nutrition, mental health, financial literacy, and self-development.</p>
     </div>
     <div class="beyond-card">
-      <div class="beyond-icon">🏢</div>
+      <div class="beyond-icon"></div>
       <div class="beyond-num">03</div>
       <div class="beyond-name">CORPORATE WELLNESS</div>
       <p class="beyond-desc">B2B wellness partnerships with companies investing in their people. On-site programming, catered smoothie service, and custom employee wellness plans.</p>
     </div>
     <div class="beyond-card">
-      <div class="beyond-icon">📦</div>
+      <div class="beyond-icon"></div>
       <div class="beyond-num">04</div>
       <div class="beyond-name">SOUL BOX DTC</div>
       <p class="beyond-desc">A monthly subscription box that brings the Soul Frut experience home — smoothie vouchers, superfoods, merch drops, and digital wellness content, delivered to your door.</p>
     </div>
     <div class="beyond-card">
-      <div class="beyond-icon">🌱</div>
+      <div class="beyond-icon"></div>
       <div class="beyond-num">05</div>
       <div class="beyond-name">COMMUNITY PLATFORM</div>
       <p class="beyond-desc">A members-only digital space to share progress, stack habits, and hold each other accountable. Wellness streaks, Soul Points, and real connection — not just content.</p>
     </div>
     <div class="beyond-card">
-      <div class="beyond-icon">🎤</div>
+      <div class="beyond-icon"></div>
       <div class="beyond-num">06</div>
       <div class="beyond-name">EVENTS & CATERING</div>
       <p class="beyond-desc">Pop-ups, wellness retreats, private catering, and brand activations. Bringing the Soul Frut experience to festivals, corporate events, and community gatherings nationwide.</p>
@@ -1325,12 +1325,12 @@ function selectBowl(btn, id) {
   <div class="comm-grid">
     <div class="comm-card">
       <span class="comm-cat-tag ct-physical">Physical</span>
-      <p class="comm-post-text">"30-day smoothie challenge complete 🎉 Down 8 lbs and energy through the roof. The Blu Majik bowl is what started it all fr."</p>
+      <p class="comm-post-text">"30-day smoothie challenge complete  Down 8 lbs and energy through the roof. The Blu Majik bowl is what started it all fr."</p>
       <div class="comm-post-meta">
         <div class="comm-avatar">JT</div>
         <div>
           <div class="comm-author">Jordan T.</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.25)">3 days ago · 24 ❤️</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.25)">3 days ago · 24 </div>
         </div>
       </div>
     </div>
@@ -1341,7 +1341,7 @@ function selectBowl(btn, id) {
         <div class="comm-avatar" style="background:rgba(100,100,255,0.2);color:#8888FF">MS</div>
         <div>
           <div class="comm-author">Maya S.</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.25)">1 week ago · 41 ❤️</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.25)">1 week ago · 41 </div>
         </div>
       </div>
     </div>
@@ -1352,7 +1352,7 @@ function selectBowl(btn, id) {
         <div class="comm-avatar" style="background:rgba(255,94,26,0.2);color:var(--orange)">DR</div>
         <div>
           <div class="comm-author">Dr. Rivera</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.25)">2 weeks ago · 67 ❤️</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.25)">2 weeks ago · 67 </div>
         </div>
       </div>
     </div>
@@ -1379,7 +1379,7 @@ function selectBowl(btn, id) {
       <div class="stat-label">Corporate Activations</div>
     </div>
     <div>
-      <div class="stat-num">4.9★</div>
+      <div class="stat-num">4.9</div>
       <div class="stat-label">Average Rating</div>
     </div>
   </div>
@@ -1407,63 +1407,63 @@ function selectBowl(btn, id) {
     <div class="poss-grid">
 
       <div class="poss-card">
-        <div class="poss-icon">📡</div>
+        <div class="poss-icon">01</div>
         <h3 class="poss-name">Live Streaming Studio</h3>
         <p class="poss-desc">Wellness classes, recipe drops, and brand reveals — streamed live with real-time tipping and paid access for community members.</p>
         <span class="poss-tag">Community Monetization</span>
       </div>
 
       <div class="poss-card">
-        <div class="poss-icon">🎓</div>
+        <div class="poss-icon">02</div>
         <h3 class="poss-name">Soul Frut Academy</h3>
         <p class="poss-desc">Certified nutrition, wellness coaching, and entrepreneurship courses — building the next generation of health-conscious leaders.</p>
         <span class="poss-tag">Education & Licensing</span>
       </div>
 
       <div class="poss-card">
-        <div class="poss-icon">📱</div>
+        <div class="poss-icon">03</div>
         <h3 class="poss-name">The Soul Frut App</h3>
         <p class="poss-desc">Order ahead, track your wellness journey, earn rewards, and plug into the community — all in one native iOS & Android experience.</p>
         <span class="poss-tag">Platform</span>
       </div>
 
       <div class="poss-card">
-        <div class="poss-icon">🌍</div>
+        <div class="poss-icon">04</div>
         <h3 class="poss-name">National Franchise</h3>
         <p class="poss-desc">Brick-and-mortar Soul Frut bars in every major metro. A franchise model designed for HBCU alumni, wellness entrepreneurs, and community investors.</p>
         <span class="poss-tag">Expansion</span>
       </div>
 
       <div class="poss-card">
-        <div class="poss-icon">🤝</div>
+        <div class="poss-icon">05</div>
         <h3 class="poss-name">Brand Collabs & Co-Drops</h3>
         <p class="poss-desc">Limited edition products, capsule collections, and co-branded activations with music artists, athletes, and culture-forward brands.</p>
         <span class="poss-tag">Culture & Commerce</span>
       </div>
 
       <div class="poss-card">
-        <div class="poss-icon">🎟️</div>
+        <div class="poss-icon">06</div>
         <h3 class="poss-name">Soul Frut Events</h3>
         <p class="poss-desc">Pop-ups, wellness retreats, campus takeovers, and festival booths — turning every gathering into a brand moment and revenue stream.</p>
         <span class="poss-tag">Experiential</span>
       </div>
 
       <div class="poss-card">
-        <div class="poss-icon">📦</div>
+        <div class="poss-icon">07</div>
         <h3 class="poss-name">Global Soul Box</h3>
         <p class="poss-desc">Monthly curated wellness boxes shipped worldwide — superfoods, supplements, merch, and exclusive member content in every delivery.</p>
         <span class="poss-tag">DTC Subscription</span>
       </div>
 
       <div class="poss-card">
-        <div class="poss-icon">🏢</div>
+        <div class="poss-icon">08</div>
         <h3 class="poss-name">Corporate Wellness Network</h3>
         <p class="poss-desc">Recurring B2B contracts with Fortune 500s, universities, and healthcare systems — building a national corporate wellness division.</p>
         <span class="poss-tag">B2B Enterprise</span>
       </div>
 
       <div class="poss-card poss-card--cta">
-        <div class="poss-icon">✦</div>
+        <div class="poss-icon"></div>
         <h3 class="poss-name">And That's Just What We Can Say Now.</h3>
         <p class="poss-desc">The vision goes further than any roadmap can show. Get in early — be part of the movement before the world catches on.</p>
         <a href="https://community.soulfrut.com" class="btn-poss">Join The Community</a>
