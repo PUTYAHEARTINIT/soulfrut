@@ -422,6 +422,43 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
 .beyond-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1.5px;color:#fff;margin-bottom:12px}
 .beyond-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7}
 
+/* ROADMAP / TIMELINE */
+.roadmap{padding:120px 40px;background:var(--void);position:relative;overflow:hidden}
+.roadmap::after{content:'';position:absolute;left:50%;top:0;transform:translateX(-50%);width:1px;height:100%;
+  background:linear-gradient(to bottom,transparent 0%,rgba(255,94,26,0.25) 8%,rgba(255,94,26,0.25) 92%,transparent 100%);pointer-events:none}
+.tl-wrap{max-width:980px;margin:64px auto 0;position:relative}
+.tl-item{display:grid;grid-template-columns:1fr 56px 1fr;align-items:start;margin-bottom:72px}
+.tl-item:last-child{margin-bottom:0}
+.tl-left{padding-right:52px;text-align:right}
+.tl-right{padding-left:52px}
+.tl-node{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0;padding-top:10px}
+.tl-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--orange);background:var(--void);flex-shrink:0}
+.tl-dot.active{background:var(--orange);box-shadow:0 0 20px rgba(255,94,26,0.6)}
+.tl-dot.soon{border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.03)}
+.tl-year{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.2);margin-top:8px;white-space:nowrap}
+.tl-card{background:var(--card);border:1px solid var(--glass-b);border-radius:20px;padding:28px 32px;transition:all .4s cubic-bezier(.23,1,.32,1)}
+.tl-card:hover{border-color:rgba(255,94,26,0.25);transform:translateY(-3px)}
+.tl-card.active-card{border-color:rgba(255,94,26,0.3);box-shadow:0 0 40px rgba(255,94,26,0.05)}
+.tl-status{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;padding:4px 10px;border-radius:100px}
+.status-live{background:rgba(0,200,100,0.1);color:#00C864;border:1px solid rgba(0,200,100,0.2)}
+.status-live::before{content:'';width:6px;height:6px;border-radius:50%;background:#00C864;flex-shrink:0;animation:pdot 1.6s ease-in-out infinite}
+.status-launching{background:rgba(255,94,26,0.1);color:var(--orange);border:1px solid rgba(255,94,26,0.2)}
+.status-dev{background:rgba(130,100,255,0.1);color:#9988FF;border:1px solid rgba(130,100,255,0.2)}
+.status-future{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.07)}
+.tl-phase{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,94,26,0.45);margin-bottom:6px}
+.tl-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1.5px;color:#fff;margin-bottom:10px;line-height:1.1}
+.tl-desc{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.7}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tl-tag{font-size:10px;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);color:rgba(255,255,255,0.3);letter-spacing:.5px}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+@media(max-width:900px){
+  .roadmap::after{left:20px;transform:none}
+  .tl-item{grid-template-columns:40px 1fr;margin-bottom:48px}
+  .tl-left{display:none}
+  .tl-right{padding-left:20px}
+  .tl-node{align-items:center}
+}
+
 /* COMMUNITY PREVIEW */
 .comm-prev{padding:120px 40px;background:var(--deep);position:relative;overflow:hidden}
 .comm-prev::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(45,10,78,0.3) 0%,transparent 70%);pointer-events:none}
@@ -744,6 +781,126 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
       <div class="beyond-name">EVENTS & CATERING</div>
       <p class="beyond-desc">Pop-ups, wellness retreats, private catering, and brand activations. Bringing the Soul Frut experience to festivals, corporate events, and community gatherings nationwide.</p>
     </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap" id="roadmap">
+  <div class="pillars-header">
+    <span class="s-eye">The Roadmap</span>
+    <h2 class="s-title">WHERE WE'RE GOING</h2>
+    <p class="s-sub">Every great brand has a blueprint. Here's ours — phase by phase, no shortcuts.</p>
+  </div>
+  <div class="tl-wrap">
+
+    <!-- PHASE 1 -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-card active-card">
+          <div class="tl-phase">Phase 01</div>
+          <div class="tl-status status-live">Live</div>
+          <div class="tl-name">THE FRESH BAR</div>
+          <p class="tl-desc">The foundation — brick-and-mortar smoothie bars serving mood-formulated drinks, protein blends, refreshers, and acai bowls. Building the brand through taste, culture, and community presence.</p>
+          <div class="tl-tags"><span class="tl-tag">Smoothies</span><span class="tl-tag">Bowls</span><span class="tl-tag">Refreshers</span><span class="tl-tag">In-Store</span></div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot active"></div>
+        <div class="tl-year">2024–25</div>
+      </div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="tl-item">
+      <div class="tl-empty"></div>
+      <div class="tl-node">
+        <div class="tl-dot active"></div>
+        <div class="tl-year">2025</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-card active-card">
+          <div class="tl-phase">Phase 02</div>
+          <div class="tl-status status-launching">Launching</div>
+          <div class="tl-name">E-COMMERCE & SOUL BOX</div>
+          <p class="tl-desc">Direct-to-consumer expansion — online shop for merch, wellness bundles, and the Soul Box monthly subscription. Building recurring revenue and brand loyalty beyond the physical location.</p>
+          <div class="tl-tags"><span class="tl-tag">Soul Box</span><span class="tl-tag">Merch</span><span class="tl-tag">DTC</span><span class="tl-tag">Subscriptions</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-card">
+          <div class="tl-phase">Phase 03</div>
+          <div class="tl-status status-dev">In Development</div>
+          <div class="tl-name">COMMUNITY PLATFORM</div>
+          <p class="tl-desc">A members-only digital wellness hub — habit tracking, Soul Points rewards, community challenges, and peer accountability. The social layer that turns customers into a movement.</p>
+          <div class="tl-tags"><span class="tl-tag">App</span><span class="tl-tag">Community</span><span class="tl-tag">Soul Points</span><span class="tl-tag">Habits</span></div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025–26</div>
+      </div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="tl-item">
+      <div class="tl-empty"></div>
+      <div class="tl-node">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2026</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-card">
+          <div class="tl-phase">Phase 04</div>
+          <div class="tl-status status-dev">In Development</div>
+          <div class="tl-name">SOUL FRUT ACADEMY</div>
+          <p class="tl-desc">Wellness education — live workshops, certified digital courses, and curriculum around nutrition, mental health, financial wellness, and self-development. Knowledge as a product.</p>
+          <div class="tl-tags"><span class="tl-tag">Education</span><span class="tl-tag">Courses</span><span class="tl-tag">Workshops</span><span class="tl-tag">Certification</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 5 -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-card">
+          <div class="tl-phase">Phase 05</div>
+          <div class="tl-status status-future">Coming Soon</div>
+          <div class="tl-name">CORPORATE WELLNESS</div>
+          <p class="tl-desc">B2B partnerships with companies investing in employee wellness. On-site smoothie service, branded wellness programs, and corporate memberships that put Soul Frut inside the workday.</p>
+          <div class="tl-tags"><span class="tl-tag">B2B</span><span class="tl-tag">Corporate</span><span class="tl-tag">Catering</span><span class="tl-tag">Partnerships</span></div>
+        </div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot soon"></div>
+        <div class="tl-year">2026–27</div>
+      </div>
+      <div class="tl-empty"></div>
+    </div>
+
+    <!-- PHASE 6 -->
+    <div class="tl-item">
+      <div class="tl-empty"></div>
+      <div class="tl-node">
+        <div class="tl-dot soon"></div>
+        <div class="tl-year">2027+</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-card">
+          <div class="tl-phase">Phase 06</div>
+          <div class="tl-status status-future">The Vision</div>
+          <div class="tl-name">NATIONAL EXPANSION</div>
+          <p class="tl-desc">Multi-city franchise model, strategic retail partnerships, and Soul Frut becoming the defining wellness lifestyle brand of our generation. The cup is just the beginning.</p>
+          <div class="tl-tags"><span class="tl-tag">Franchise</span><span class="tl-tag">Retail</span><span class="tl-tag">National</span><span class="tl-tag">Scale</span></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
