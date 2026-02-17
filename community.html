@@ -16,11 +16,11 @@
   --card:rgba(20,8,40,0.85); --glass:rgba(255,255,255,0.04); --glass-b:rgba(255,255,255,0.07);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--deep)}
-body{font-family:'DM Sans',sans-serif;background:var(--deep);color:#fff;min-height:100vh}
-body::after{content:'';position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:9999;opacity:.5}
+html{scroll-behavior:smooth;
+  background:linear-gradient(160deg,#150228 0%,#2d0a52 25%,#4e2580 55%,#7a5fa0 80%,#9e8fbf 100%);
+  background-attachment:fixed;min-height:100%}
+body{font-family:'DM Sans',sans-serif;background:transparent;color:#fff;min-height:100vh}
+body::after{display:none}
 
 /* NAV */
 .topbar{background:rgba(8,2,15,0.92);backdrop-filter:blur(20px);
