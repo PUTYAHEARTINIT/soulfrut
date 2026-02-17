@@ -620,7 +620,7 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
       var x=(i%cols)*cell,y=Math.floor(i/cols)*cell;
       ctx.drawImage(img,x,y,cell,cell);
       if(++loaded===logos.length){
-        document.getElementById('tile-bg').style.backgroundImage='url('+c.toDataURL()+')';
+        document.getElementById('tile-bg').style.backgroundImage='url('+c.toDataURL()+')';document.getElementById('tile-bg').style.mixBlendMode='screen';
         document.getElementById('tile-bg').style.backgroundSize=(cell*cols)+'px '+(cell*rows)+'px';
       }
     };
