@@ -483,7 +483,95 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
   .sbox-text{padding:28px 24px}
   .beyond-grid{grid-template-columns:1fr}
   .comm-grid{grid-template-columns:1fr}
+  .campus-grid{grid-template-columns:1fr}
+  .partner-row{flex-wrap:wrap;gap:20px}
+  .partner-chip{min-width:calc(50% - 10px)}
+  .prod-grid{grid-template-columns:1fr}
+  .corp-layout{grid-template-columns:1fr;gap:48px}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
 }
+@media(max-width:480px){.stat-grid{grid-template-columns:1fr}}
+
+/* BLUE OCEAN STATEMENT */
+.bo-statement{padding:100px 40px;background:var(--purple);text-align:center;position:relative;overflow:hidden}
+.bo-statement::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(255,94,26,0.12) 0%,transparent 70%);pointer-events:none}
+.bo-inner{max-width:860px;margin:0 auto;position:relative;z-index:1}
+.bo-super{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:5px;color:rgba(255,255,255,0.3);margin-bottom:32px;display:block}
+.bo-quote{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6.5vw,86px);letter-spacing:3px;line-height:1.05;color:#fff;margin-bottom:32px}
+.bo-quote .hl{color:var(--orange)}
+.bo-line{width:60px;height:1px;background:var(--orange);margin:0 auto 32px;opacity:.5}
+.bo-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,0.45);line-height:1.6;max-width:620px;margin:0 auto 40px}
+.bo-badge{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border:1px solid rgba(255,94,26,0.35);border-radius:100px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--orange)}
+
+/* CAMPUS & PARTNERS */
+.campus{padding:120px 40px;background:radial-gradient(ellipse 50% 60% at 80% 40%,rgba(45,10,78,0.3) 0%,transparent 60%),var(--deep)}
+.campus-layout{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.campus-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.campus-card{background:var(--card);border:1px solid var(--glass-b);border-radius:16px;padding:20px 24px;transition:all .4s}
+.campus-card:hover{border-color:rgba(255,94,26,0.25);transform:translateY(-3px)}
+.campus-card-icon{font-size:22px;margin-bottom:8px}
+.campus-card-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:#fff;margin-bottom:4px}
+.campus-card-status{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px}
+.cs-active{color:#00C864}.cs-next{color:var(--orange)}.cs-target{color:rgba(255,255,255,0.25)}
+.partner-wrap{margin-top:32px}
+.partner-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.25);margin-bottom:16px;display:block}
+.partner-row{display:flex;gap:12px;flex-wrap:wrap}
+.partner-chip{display:flex;align-items:center;gap:10px;padding:12px 20px;background:var(--card);border:1px solid var(--glass-b);border-radius:12px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);transition:all .3s}
+.partner-chip:hover{border-color:rgba(255,94,26,0.3);color:#fff}
+.partner-chip span{font-size:18px}
+.campus-expand{margin-top:48px}
+.campus-expand-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:16px}
+.expand-targets{display:flex;flex-wrap:wrap;gap:8px}
+.expand-tag{font-size:11px;padding:5px 14px;border-radius:100px;border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.25);transition:all .3s}
+.expand-tag:hover{border-color:rgba(255,94,26,0.25);color:rgba(255,94,26,0.7)}
+
+/* PACKAGED PRODUCTS — COMING SOON */
+.products-soon{padding:120px 40px;background:var(--void);position:relative;overflow:hidden}
+.products-soon::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,94,26,0.04) 0%,transparent 65%);pointer-events:none}
+.prod-grid{max-width:1100px;margin:48px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prod-card{background:var(--card);border:1px solid var(--glass-b);border-radius:20px;padding:32px;transition:all .4s;position:relative;overflow:hidden}
+.prod-card::after{content:'COMING SOON';position:absolute;top:18px;right:-28px;background:var(--orange);color:#fff;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;padding:4px 36px;transform:rotate(45deg);transform-origin:center}
+.prod-card:hover{transform:translateY(-4px);border-color:rgba(255,94,26,0.2)}
+.prod-icon{font-size:32px;margin-bottom:16px;display:block}
+.prod-name{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1.5px;color:#fff;margin-bottom:8px}
+.prod-tagline{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--orange);margin-bottom:14px}
+.prod-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;margin-bottom:20px}
+.prod-ingredients{display:flex;flex-wrap:wrap;gap:6px}
+.prod-ing{font-size:10px;padding:3px 10px;border-radius:100px;background:rgba(255,94,26,0.08);border:1px solid rgba(255,94,26,0.15);color:rgba(255,94,26,0.6)}
+.prod-waitlist{margin-top:56px;text-align:center}
+.prod-waitlist-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.3);margin-bottom:24px}
+.waitlist-form{display:flex;gap:12px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.waitlist-input{flex:1;min-width:220px;padding:14px 20px;background:var(--card);border:1px solid var(--glass-b);border-radius:100px;color:#fff;font-size:13px;outline:none;font-family:'DM Sans',sans-serif}
+.waitlist-input::placeholder{color:rgba(255,255,255,0.25)}
+.waitlist-input:focus{border-color:rgba(255,94,26,0.4)}
+
+/* CORPORATE WELLNESS */
+.corp{padding:120px 40px;background:var(--deep);position:relative;overflow:hidden}
+.corp::before{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(45,10,78,0.2) 0%,transparent 70%);pointer-events:none}
+.corp-layout{max-width:1100px;margin:48px auto 0;display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start}
+.corp-left{}
+.corp-price-block{background:linear-gradient(135deg,rgba(255,94,26,0.08) 0%,rgba(45,10,78,0.3) 100%);border:1px solid rgba(255,94,26,0.2);border-radius:20px;padding:32px;margin-bottom:28px}
+.corp-price-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.3);margin-bottom:12px}
+.corp-price-range{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--orange);line-height:1;margin-bottom:8px}
+.corp-price-sub{font-size:13px;color:rgba(255,255,255,0.4)}
+.corp-services{list-style:none;margin-bottom:32px}
+.corp-services li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:14px;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:12px}
+.corp-services li::before{content:'→';color:var(--orange);font-weight:700;flex-shrink:0}
+.corp-right{}
+.corp-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+.corp-stat{background:var(--card);border:1px solid var(--glass-b);border-radius:16px;padding:24px;text-align:center}
+.corp-stat-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--orange);line-height:1;margin-bottom:6px}
+.corp-stat-label{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:1px}
+.corp-quote{background:var(--card);border:1px solid var(--glass-b);border-radius:16px;padding:24px 28px}
+.corp-quote-text{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:16px}
+.corp-quote-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(255,94,26,0.5)}
+
+/* STATS BAR */
+.stats-bar{padding:80px 40px;background:var(--purple);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)}
+.stat-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,64px);color:var(--orange);line-height:1;margin-bottom:6px}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:2px;font-family:'Space Mono',monospace}
+.stat-divider{width:1px;background:rgba(255,255,255,0.08);height:auto;display:none}
 </style>
 </head>
 <body>
@@ -499,8 +587,9 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
     <li><a href="#ecosystem">Ecosystem</a></li>
     <li><a href="#menu">Menu</a></li>
     <li><a href="#bottles">Bottles</a></li>
+    <li><a href="#campus">Campus</a></li>
+    <li><a href="#corporate">Corporate</a></li>
     <li><a href="#shop">Shop</a></li>
-    <li><a href="#beyond">The Vision</a></li>
     <li><a href="/community">Community</a></li>
     <li><a href="#order" class="nav-cta">Order Now</a></li>
   </ul>
@@ -544,6 +633,17 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
     <div class="phi-label">Our Philosophy</div>
     <h2 class="phi-quote">Wellness is <strong>not a diet</strong>.<br>It's intentional living, positive energy,<br>and <strong>community healing</strong>.</h2>
     <p class="phi-desc">SOUL FRUT is a next-generation holistic wellness brand delivering nutrient-dense smoothies, protein beverages, refreshers, and fruit bowls formulated around mood, performance, recovery, and lifestyle needs — while building a culture of positivity, self-development, and empowerment.</p>
+  </div>
+</section>
+
+<!-- BLUE OCEAN STATEMENT -->
+<section class="bo-statement">
+  <div class="bo-inner">
+    <span class="bo-super">Blue Ocean Repositioning</span>
+    <h2 class="bo-quote">Competitors <span class="hl">sell drinks.</span><br>SOUL FRUT sells <span class="hl">transformation.</span></h2>
+    <div class="bo-line"></div>
+    <p class="bo-sub">"We are not in the smoothie business. We are in the intentional living business — and the smoothie is the entry point into a lifestyle ecosystem that impacts your body, your mind, your money, and your community."</p>
+    <div class="bo-badge">✦ &nbsp; Intentional Living Fuel™ &nbsp; ✦</div>
   </div>
 </section>
 
@@ -621,6 +721,84 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
       <div class="pc-long">A monthly direct-to-consumer subscription box designed to build predictable recurring revenue and deepen customer relationships. Each box includes packaged smoothie blends or protein packets with rotating flavors, a wellness card with an affirmation, financial tip, or mindset prompt, a rotating specialty product like a tea blend, hydration mix, or seasonal item, and exclusive discounts or early access to new products. Subscription metrics — retention rate, average order value, churn, and lifetime value — are the numbers that make CPG investors pay attention. A strong subscription base signals predictable revenue and deep brand loyalty.</div>
     </div>
 
+  </div>
+</section>
+
+<!-- CAMPUS & PARTNERS -->
+<section class="campus" id="campus">
+  <div class="campus-layout">
+    <div>
+      <span class="s-eye">Campus First</span>
+      <h2 class="s-title">BORN ON CAMPUS.<br>BUILT FOR THE WORLD.</h2>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:20px;margin-bottom:8px;">College campuses are closed ecosystems with high word-of-mouth velocity, repeat customers on predictable schedules, and cultural influence that radiates outward. We don't just sell on campus — we own the culture.</p>
+      <div class="campus-grid">
+        <div class="campus-card">
+          <div class="campus-card-icon">🏫</div>
+          <div class="campus-card-name">Georgia Tech</div>
+          <div class="campus-card-status cs-active">● Active</div>
+        </div>
+        <div class="campus-card">
+          <div class="campus-card-icon">🔶</div>
+          <div class="campus-card-name">Spelman College</div>
+          <div class="campus-card-status cs-next">▶ Next</div>
+        </div>
+        <div class="campus-card">
+          <div class="campus-card-icon">🔶</div>
+          <div class="campus-card-name">Morehouse College</div>
+          <div class="campus-card-status cs-next">▶ Next</div>
+        </div>
+        <div class="campus-card">
+          <div class="campus-card-icon">○</div>
+          <div class="campus-card-name">Clark Atlanta</div>
+          <div class="campus-card-status cs-target">Coming</div>
+        </div>
+        <div class="campus-card">
+          <div class="campus-card-icon">○</div>
+          <div class="campus-card-name">Georgia State</div>
+          <div class="campus-card-status cs-target">Coming</div>
+        </div>
+        <div class="campus-card">
+          <div class="campus-card-icon">○</div>
+          <div class="campus-card-name">Emory University</div>
+          <div class="campus-card-status cs-target">Coming</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="s-eye">The Ecosystem</span>
+      <h2 class="s-title" style="font-size:clamp(28px,4vw,52px)">PARTNERS &amp; ACTIVATIONS</h2>
+      <p style="font-size:14px;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:20px;margin-bottom:32px;">We've built real partnerships with brands that share our energy — and we're expanding into every space where people already gather to level up.</p>
+
+      <div class="partner-wrap">
+        <span class="partner-label">Confirmed Partners</span>
+        <div class="partner-row">
+          <div class="partner-chip"><span>⚡</span> Red Bull</div>
+          <div class="partner-chip"><span>🍗</span> Pot O Wings</div>
+          <div class="partner-chip"><span>🏫</span> Georgia Tech</div>
+        </div>
+      </div>
+
+      <div class="campus-expand" style="margin-top:36px">
+        <div class="campus-expand-title">Expansion Targets</div>
+        <div class="expand-targets">
+          <span class="expand-tag">Gyms &amp; Fitness Studios</span>
+          <span class="expand-tag">Churches &amp; Faith Communities</span>
+          <span class="expand-tag">Music Festivals</span>
+          <span class="expand-tag">Athletic Programs</span>
+          <span class="expand-tag">Corporate Campuses</span>
+          <span class="expand-tag">University Dining</span>
+          <span class="expand-tag">Wellness Retreats</span>
+          <span class="expand-tag">Airports &amp; Travel Hubs</span>
+          <span class="expand-tag">Amazon</span>
+          <span class="expand-tag">National Retail</span>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;background:var(--card);border:1px solid var(--glass-b);border-radius:16px;padding:24px 28px">
+        <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--orange);margin-bottom:12px">NIL &amp; AMBASSADOR PROGRAM</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7">Campus athlete NIL partnerships + a student ambassador network that turns every campus into an organic growth engine. When the culture moves, the brand moves with it.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -737,6 +915,78 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
   </div>
 </section>
 
+<!-- PACKAGED PRODUCTS -->
+<section class="products-soon" id="products">
+  <div class="pillars-header">
+    <span class="s-eye">Retail Expansion</span>
+    <h2 class="s-title">THE PRODUCT LINE IS COMING</h2>
+    <p class="s-sub">Soul Frut formulations — built on functional ingredients, backed by real science, designed for real life. From campus bars to Amazon shelves to your front door.</p>
+  </div>
+  <div class="prod-grid">
+    <div class="prod-card">
+      <span class="prod-icon">💪</span>
+      <div class="prod-name">PROTEIN POWER PACKET</div>
+      <div class="prod-tagline">Perform · Recover · Rebuild</div>
+      <p class="prod-desc">25g of clean whey + plant protein per serving, formulated around performance and recovery. No fillers, no fake sweeteners — just intentional fuel designed for people who move with purpose. Mixes instantly into any smoothie or water.</p>
+      <div class="prod-ingredients">
+        <span class="prod-ing">Whey Isolate</span><span class="prod-ing">Pea Protein</span><span class="prod-ing">L-Glutamine</span><span class="prod-ing">MCT Oil</span><span class="prod-ing">Digestive Enzymes</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <span class="prod-icon">🌿</span>
+      <div class="prod-name">MOOD SMOOTHIE BLEND</div>
+      <div class="prod-tagline">Energize · Elevate · Align</div>
+      <p class="prod-desc">A mood-coded blend of adaptogens, superfoods, and functional mushrooms tuned to your energy state. Available in four formulations — Focus, Calm, Elevate, and Restore — each with specific ingredient profiles for specific states of mind.</p>
+      <div class="prod-ingredients">
+        <span class="prod-ing">Ashwagandha</span><span class="prod-ing">Lion's Mane</span><span class="prod-ing">Spirulina</span><span class="prod-ing">Maca Root</span><span class="prod-ing">Cacao</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <span class="prod-icon">💧</span>
+      <div class="prod-name">RECOVERY HYDRATION MIX</div>
+      <div class="prod-tagline">Rehydrate · Replenish · Reset</div>
+      <p class="prod-desc">Electrolyte-dense hydration packets built for full recovery — post-workout, post-late night, or any time your body needs to reset. Clinical-dose electrolytes with coconut water powder and trace minerals. Zero sugar, full impact.</p>
+      <div class="prod-ingredients">
+        <span class="prod-ing">Coconut Water</span><span class="prod-ing">Sea Salt</span><span class="prod-ing">Potassium</span><span class="prod-ing">Magnesium</span><span class="prod-ing">Vitamin C</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <span class="prod-icon">🧠</span>
+      <div class="prod-name">BRAIN-FOCUS BLEND</div>
+      <div class="prod-tagline">Clarity · Memory · Flow State</div>
+      <p class="prod-desc">Nootropic-forward formula for students, entrepreneurs, and creatives who need to be sharp without the crash. Sustained cognitive energy through clean adaptogens and brain-specific nutrients — no jitters, no burnout, just flow.</p>
+      <div class="prod-ingredients">
+        <span class="prod-ing">Lion's Mane</span><span class="prod-ing">Rhodiola</span><span class="prod-ing">Alpha GPC</span><span class="prod-ing">Green Tea Extract</span><span class="prod-ing">B-Complex</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <span class="prod-icon">🌙</span>
+      <div class="prod-name">STRESS-RELIEF TEA BLEND</div>
+      <div class="prod-tagline">Decompress · Rest · Restore</div>
+      <p class="prod-desc">An evening ritual in a cup — a functional herbal blend designed to lower cortisol, calm the nervous system, and support deep sleep. For the version of you that grinds all day and needs to actually decompress at night.</p>
+      <div class="prod-ingredients">
+        <span class="prod-ing">Ashwagandha</span><span class="prod-ing">Chamomile</span><span class="prod-ing">Valerian Root</span><span class="prod-ing">Passionflower</span><span class="prod-ing">L-Theanine</span>
+      </div>
+    </div>
+    <div class="prod-card">
+      <span class="prod-icon">🔥</span>
+      <div class="prod-name">SOUL BUNDLE PACK</div>
+      <div class="prod-tagline">The Complete System</div>
+      <p class="prod-desc">All five formulations in one curated monthly system — designed to cover every dimension of your wellness from morning to night. The full Soul Frut ritual, packaged for wherever life takes you. Available exclusively through the Soul Box subscription.</p>
+      <div class="prod-ingredients">
+        <span class="prod-ing">All 5 Blends</span><span class="prod-ing">Soul Box Exclusive</span><span class="prod-ing">Monthly Delivery</span>
+      </div>
+    </div>
+  </div>
+  <div class="prod-waitlist">
+    <p class="prod-waitlist-sub">Be the first to know when we launch. Early access — members only.</p>
+    <div class="waitlist-form">
+      <input class="waitlist-input" type="email" placeholder="your@email.com">
+      <a href="#" class="btn p" style="border-radius:100px;padding:14px 28px;font-size:13px;white-space:nowrap">Join Waitlist</a>
+    </div>
+  </div>
+</section>
+
 <!-- BEYOND THE CUP -->
 <section class="beyond" id="beyond">
   <div class="pillars-header">
@@ -780,6 +1030,62 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
       <div class="beyond-num">06</div>
       <div class="beyond-name">EVENTS & CATERING</div>
       <p class="beyond-desc">Pop-ups, wellness retreats, private catering, and brand activations. Bringing the Soul Frut experience to festivals, corporate events, and community gatherings nationwide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CORPORATE WELLNESS -->
+<section class="corp" id="corporate">
+  <div class="pillars-header">
+    <span class="s-eye">B2B Contracts</span>
+    <h2 class="s-title">WE COME TO YOUR COMPANY</h2>
+    <p class="s-sub">Corporate wellness isn't a perk — it's a competitive advantage. Soul Frut brings intentional fuel directly into the workplace.</p>
+  </div>
+  <div class="corp-layout">
+    <div class="corp-left">
+      <div class="corp-price-block">
+        <div class="corp-price-label">Contract Range</div>
+        <div class="corp-price-range">$10K–$100K+</div>
+        <div class="corp-price-sub">Per engagement, depending on program scope, company size, and duration.</div>
+      </div>
+      <ul class="corp-services">
+        <li>On-site smoothie bar setup &amp; staffing for employee events</li>
+        <li>Monthly employee wellness nutrition packages &amp; deliveries</li>
+        <li>Mental health nutrition programs tied to HR initiatives</li>
+        <li>Financial wellness workshops through Soul Frut Academy</li>
+        <li>Branded office smoothie stations with curated rotating menus</li>
+        <li>Quarterly catered wellness days — in-person activations</li>
+        <li>Custom corporate Soul Box subscriptions for entire teams</li>
+      </ul>
+      <a href="mailto:hello@soulfrut.com" class="btn p" style="border-radius:100px;padding:16px 36px">Request a Corporate Proposal</a>
+    </div>
+    <div class="corp-right">
+      <div class="corp-stat-grid">
+        <div class="corp-stat">
+          <div class="corp-stat-num">50+</div>
+          <div class="corp-stat-label">Corporate Events Activated</div>
+        </div>
+        <div class="corp-stat">
+          <div class="corp-stat-num">98%</div>
+          <div class="corp-stat-label">Client Satisfaction Rate</div>
+        </div>
+        <div class="corp-stat">
+          <div class="corp-stat-num">200+</div>
+          <div class="corp-stat-label">Employees Fueled Per Event</div>
+        </div>
+        <div class="corp-stat">
+          <div class="corp-stat-num">3×</div>
+          <div class="corp-stat-label">Avg. Re-booking Rate</div>
+        </div>
+      </div>
+      <div class="corp-quote">
+        <p class="corp-quote-text">"Soul Frut transformed our wellness day from a catering order into a full cultural moment. The energy in the room was completely different. We're booking them every quarter now."</p>
+        <div class="corp-quote-tag">— Corporate Partner, Atlanta Tech Firm</div>
+      </div>
+      <div style="margin-top:20px;background:var(--card);border:1px solid var(--glass-b);border-radius:16px;padding:24px 28px">
+        <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--orange);margin-bottom:12px">WHY COMPANIES PARTNER WITH US</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7">Companies investing in employee wellness see 25% lower turnover, 20% higher productivity, and measurable reductions in sick days. Soul Frut packages that ROI into an experience employees actually look forward to — not just a salad bar in the break room.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -949,6 +1255,28 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
   <div class="comm-join-wrap">
     <p class="comm-join-sub">Join thousands building their best selves — one smoothie at a time.</p>
     <a href="/community" class="btn p" style="border-radius:100px;padding:16px 40px;font-size:14px;font-weight:700">Join the Community →</a>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="stat-grid">
+    <div>
+      <div class="stat-num">5K+</div>
+      <div class="stat-label">Intentional Meals Served</div>
+    </div>
+    <div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Campus Locations</div>
+    </div>
+    <div>
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Corporate Activations</div>
+    </div>
+    <div>
+      <div class="stat-num">4.9★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
   </div>
 </section>
 
