@@ -256,6 +256,28 @@ nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);
 .pa3{background:var(--purple)}
 .pfn{font-weight:600;font-size:13px}.pfh{font-size:11px;color:rgba(255,255,255,0.25)}
 
+
+/* POSSIBILITIES */
+.possibilities{padding:120px 40px;background:linear-gradient(180deg,var(--void) 0%,#0e0120 50%,var(--void) 100%);position:relative;overflow:hidden}
+.possibilities::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(255,94,26,0.07) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(90,45,130,0.12) 0%,transparent 60%);pointer-events:none}
+.poss-inner{max-width:1200px;margin:0 auto;text-align:center}
+.poss-title{font-size:clamp(42px,7vw,96px)!important;line-height:.95!important;margin-bottom:20px!important}
+.poss-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(16px,2vw,20px);color:rgba(232,213,181,0.55);max-width:640px;margin:0 auto 70px;line-height:1.6}
+.poss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px;margin-top:60px;border:1px solid rgba(255,94,26,0.12);border-radius:20px;overflow:hidden}
+.poss-card{background:rgba(12,4,24,0.7);backdrop-filter:blur(12px);padding:40px 32px;text-align:left;border:1px solid rgba(255,94,26,0.06);transition:background .3s,border-color .3s;display:flex;flex-direction:column;gap:12px}
+.poss-card:hover{background:rgba(45,10,78,0.5);border-color:rgba(255,94,26,0.2)}
+.poss-icon{font-size:32px;line-height:1}
+.poss-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1.5px;color:var(--cream);line-height:1.1}
+.poss-desc{font-family:'DM Sans',sans-serif;font-size:14px;color:rgba(232,213,181,0.5);line-height:1.7;flex:1}
+.poss-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);opacity:.7;margin-top:auto}
+.poss-card--cta{background:linear-gradient(135deg,rgba(45,10,78,0.9) 0%,rgba(12,4,24,0.95) 100%);border-color:rgba(255,94,26,0.25)!important;grid-column:span 1}
+.poss-card--cta .poss-icon{font-size:40px;color:var(--orange)}
+.poss-card--cta .poss-name{font-size:26px;color:var(--orange)}
+.poss-card--cta .poss-desc{color:rgba(232,213,181,0.65)}
+.btn-poss{display:inline-block;margin-top:20px;padding:14px 32px;background:var(--orange);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;text-decoration:none;border-radius:4px;transition:transform .2s,box-shadow .2s}
+.btn-poss:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,94,26,0.4)}
+@media(max-width:768px){.poss-grid{grid-template-columns:1fr;border-radius:12px}.possibilities{padding:80px 20px}}
+
 /* FINALE */
 .finale{padding:160px 40px;text-align:center;position:relative;overflow:hidden;
   background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(45,10,78,0.3) 0%,transparent 50%),
@@ -1372,6 +1394,82 @@ function selectBowl(btn, id) {
     <div class="pfc"><div class="pfs">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="pft">"The Rise N Grind with cold brew literally replaced my morning coffee. I'm addicted and my body thanks me."</div><div class="pfa"><div class="pfav pa1">M</div><div><div class="pfn">Marcus J.</div><div class="pfh">@marcusfitsoul</div></div></div></div>
     <div class="pfc"><div class="pfs">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="pft">"The Blu Majik bowl is unreal. I drove 45 minutes to get another one. This is not a smoothie shop — it's a movement."</div><div class="pfa"><div class="pfav pa2">T</div><div><div class="pfn">Tasha R.</div><div class="pfh">@tasha.wellness</div></div></div></div>
     <div class="pfc"><div class="pfs">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="pft">"Finally a spot that cares about quality AND community. You can taste the intention. Soul Frut is home."</div><div class="pfa"><div class="pfav pa3">D</div><div><div class="pfn">DeAndre S.</div><div class="pfh">@dre.eats</div></div></div></div>
+  </div>
+</section>
+
+
+<section class="possibilities" id="possibilities">
+  <div class="poss-inner">
+    <span class="s-eye">The Horizon</span>
+    <h2 class="s-title poss-title">THE POSSIBILITIES<br><span class="hl">ARE UNLIMITED</span></h2>
+    <p class="poss-sub">This is only the beginning. Soul Frut is building an ecosystem — and the future has no ceiling.</p>
+
+    <div class="poss-grid">
+
+      <div class="poss-card">
+        <div class="poss-icon">📡</div>
+        <h3 class="poss-name">Live Streaming Studio</h3>
+        <p class="poss-desc">Wellness classes, recipe drops, and brand reveals — streamed live with real-time tipping and paid access for community members.</p>
+        <span class="poss-tag">Community Monetization</span>
+      </div>
+
+      <div class="poss-card">
+        <div class="poss-icon">🎓</div>
+        <h3 class="poss-name">Soul Frut Academy</h3>
+        <p class="poss-desc">Certified nutrition, wellness coaching, and entrepreneurship courses — building the next generation of health-conscious leaders.</p>
+        <span class="poss-tag">Education & Licensing</span>
+      </div>
+
+      <div class="poss-card">
+        <div class="poss-icon">📱</div>
+        <h3 class="poss-name">The Soul Frut App</h3>
+        <p class="poss-desc">Order ahead, track your wellness journey, earn rewards, and plug into the community — all in one native iOS & Android experience.</p>
+        <span class="poss-tag">Platform</span>
+      </div>
+
+      <div class="poss-card">
+        <div class="poss-icon">🌍</div>
+        <h3 class="poss-name">National Franchise</h3>
+        <p class="poss-desc">Brick-and-mortar Soul Frut bars in every major metro. A franchise model designed for HBCU alumni, wellness entrepreneurs, and community investors.</p>
+        <span class="poss-tag">Expansion</span>
+      </div>
+
+      <div class="poss-card">
+        <div class="poss-icon">🤝</div>
+        <h3 class="poss-name">Brand Collabs & Co-Drops</h3>
+        <p class="poss-desc">Limited edition products, capsule collections, and co-branded activations with music artists, athletes, and culture-forward brands.</p>
+        <span class="poss-tag">Culture & Commerce</span>
+      </div>
+
+      <div class="poss-card">
+        <div class="poss-icon">🎟️</div>
+        <h3 class="poss-name">Soul Frut Events</h3>
+        <p class="poss-desc">Pop-ups, wellness retreats, campus takeovers, and festival booths — turning every gathering into a brand moment and revenue stream.</p>
+        <span class="poss-tag">Experiential</span>
+      </div>
+
+      <div class="poss-card">
+        <div class="poss-icon">📦</div>
+        <h3 class="poss-name">Global Soul Box</h3>
+        <p class="poss-desc">Monthly curated wellness boxes shipped worldwide — superfoods, supplements, merch, and exclusive member content in every delivery.</p>
+        <span class="poss-tag">DTC Subscription</span>
+      </div>
+
+      <div class="poss-card">
+        <div class="poss-icon">🏢</div>
+        <h3 class="poss-name">Corporate Wellness Network</h3>
+        <p class="poss-desc">Recurring B2B contracts with Fortune 500s, universities, and healthcare systems — building a national corporate wellness division.</p>
+        <span class="poss-tag">B2B Enterprise</span>
+      </div>
+
+      <div class="poss-card poss-card--cta">
+        <div class="poss-icon">✦</div>
+        <h3 class="poss-name">And That's Just What We Can Say Now.</h3>
+        <p class="poss-desc">The vision goes further than any roadmap can show. Get in early — be part of the movement before the world catches on.</p>
+        <a href="https://community.soulfrut.com" class="btn-poss">Join The Community</a>
+      </div>
+
+    </div>
   </div>
 </section>
 
