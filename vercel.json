@@ -1,0 +1,10 @@
+{
+  "outputDirectory": ".",
+  "buildCommand": null,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/community", "destination": "/community.html" },
+    { "source": "/menu", "destination": "/soulfrut.html" }
+  ]
+}
