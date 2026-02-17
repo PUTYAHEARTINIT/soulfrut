@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wellness Circle — SOULFRUT Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange:#FF5E1A; --orange-dim:rgba(255,94,26,0.15);
+  --purple:#2D0A4E; --purple-mid:#5A2D82; --purple-light:#7B4DB0;
+  --cream:#E8D5B5;
+  --green:#2ECC71; --teal:#00C9A7;
+  --deep:#08020F; --void:#0C0418;
+  --card:rgba(20,8,40,0.85); --glass:rgba(255,255,255,0.04); --glass-b:rgba(255,255,255,0.07);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--deep)}
+body{font-family:'DM Sans',sans-serif;background:var(--deep);color:#fff;min-height:100vh}
+body::after{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.5}
+
+/* NAV */
+.topbar{background:rgba(8,2,15,0.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:0 5%;display:flex;justify-content:space-between;align-items:center;height:64px;
+  position:sticky;top:0;z-index:100}
+.topbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.topbar-logo img{height:36px;border-radius:50%;object-fit:cover;width:36px}
+.topbar-logo span{font-family:'Bebas Neue';font-size:20px;letter-spacing:3px;color:#fff}
+.topbar-logo span em{color:var(--orange);font-style:normal}
+.topbar-right{display:flex;align-items:center;gap:16px}
+.back-link{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);
+  text-decoration:none;font-weight:600;transition:color .3s}
+.back-link:hover{color:var(--orange)}
+.post-btn{padding:8px 20px;background:var(--orange);color:#fff;border:none;border-radius:6px;
+  font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;
+  transition:all .3s}
+.post-btn:hover{background:#e54d0a;box-shadow:0 0 20px rgba(255,94,26,0.4)}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:260px 1fr 280px;gap:0;min-height:calc(100vh - 64px)}
+
+/* SIDEBAR LEFT */
+.sidebar-left{padding:32px 24px;border-right:1px solid rgba(255,255,255,0.06);
+  position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+.sidebar-section{margin-bottom:40px}
+.sidebar-title{font-family:'Space Mono';font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px;display:block}
+.cat-filter{list-style:none;display:flex;flex-direction:column;gap:4px}
+.cat-filter li a{display:flex;align-items:center;gap:10px;padding:10px 14px;
+  border-radius:8px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);
+  text-decoration:none;transition:all .3s;cursor:pointer}
+.cat-filter li a:hover,.cat-filter li a.active{background:rgba(255,94,26,0.1);color:#fff;border:1px solid rgba(255,94,26,0.2)}
+.cat-filter li a.active{color:var(--orange)}
+.cat-icon{font-size:16px;width:20px}
+.cat-count{margin-left:auto;font-size:10px;color:rgba(255,255,255,0.25);
+  font-family:'Space Mono'}
+.streak-card{background:var(--card);border:1px solid var(--glass-b);border-radius:10px;padding:20px}
+.streak-num{font-family:'Bebas Neue';font-size:48px;line-height:1;
+  background:linear-gradient(135deg,var(--orange),var(--cream));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.streak-label{font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;letter-spacing:1px}
+.pillar-badges{display:flex;flex-direction:column;gap:6px}
+.pillar-badge{display:flex;align-items:center;gap:10px;padding:8px 12px;
+  border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-b);
+  font-size:12px;color:rgba(255,255,255,0.5)}
+.pillar-badge.earned{color:#fff;background:rgba(255,94,26,0.08);border-color:rgba(255,94,26,0.2)}
+.pillar-badge-icon{font-size:16px}
+
+/* MAIN FEED */
+.feed-main{padding:32px 40px;border-right:1px solid rgba(255,255,255,0.06)}
+
+/* POST COMPOSER */
+.composer{background:var(--card);border:1px solid var(--glass-b);border-radius:12px;
+  padding:24px;margin-bottom:24px}
+.composer-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.composer-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#ff9a56);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.composer-name{font-weight:600;font-size:14px}
+.composer-body{margin-left:52px}
+.composer-cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.cat-pill{padding:5px 12px;border-radius:50px;font-size:10px;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;border:1px solid var(--glass-b);
+  background:transparent;color:rgba(255,255,255,0.4);transition:all .3s}
+.cat-pill:hover,.cat-pill.selected{color:#fff}
+.cat-pill.physical{border-color:rgba(255,94,26,0.4)}
+.cat-pill.physical.selected{background:rgba(255,94,26,0.15);color:var(--orange)}
+.cat-pill.mental{border-color:rgba(90,45,130,0.4)}
+.cat-pill.mental.selected{background:rgba(90,45,130,0.15);color:#a78bfa}
+.cat-pill.nutrition{border-color:rgba(0,201,167,0.4)}
+.cat-pill.nutrition.selected{background:rgba(0,201,167,0.12);color:var(--teal)}
+.cat-pill.financial{border-color:rgba(232,213,181,0.4)}
+.cat-pill.financial.selected{background:rgba(232,213,181,0.08);color:var(--cream)}
+.cat-pill.spiritual{border-color:rgba(167,139,250,0.4)}
+.cat-pill.spiritual.selected{background:rgba(167,139,250,0.08);color:#c4b5fd}
+.composer-input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--glass-b);
+  color:#fff;font-family:'DM Sans';font-size:15px;padding:8px 0;resize:none;
+  outline:none;line-height:1.6;min-height:80px}
+.composer-input::placeholder{color:rgba(255,255,255,0.2)}
+.composer-input:focus{border-color:rgba(255,94,26,0.4)}
+.composer-footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+.composer-footer-left{font-size:12px;color:rgba(255,255,255,0.25)}
+.post-submit-btn{padding:10px 24px;background:var(--orange);color:#fff;border:none;
+  border-radius:6px;font-weight:700;font-size:12px;letter-spacing:2px;
+  text-transform:uppercase;cursor:pointer;transition:all .3s}
+.post-submit-btn:hover{background:#e54d0a;box-shadow:0 0 20px rgba(255,94,26,0.4)}
+.post-submit-btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* FEED FILTERS */
+.feed-filters{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.feed-filter{padding:7px 16px;border-radius:50px;font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;cursor:pointer;
+  border:1px solid var(--glass-b);background:transparent;color:rgba(255,255,255,0.4);transition:all .3s}
+.feed-filter.active,.feed-filter:hover{background:rgba(255,94,26,0.1);border-color:rgba(255,94,26,0.3);color:#fff}
+
+/* POST CARDS */
+.post-card{background:var(--card);border:1px solid var(--glass-b);border-radius:12px;
+  padding:28px;margin-bottom:16px;transition:all .3s;position:relative}
+.post-card:hover{border-color:rgba(255,94,26,0.12)}
+.post-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
+.post-user{display:flex;align-items:center;gap:12px}
+.post-avatar{width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.post-meta{display:flex;flex-direction:column;gap:2px}
+.post-name{font-weight:600;font-size:14px}
+.post-time{font-size:11px;color:rgba(255,255,255,0.3)}
+.post-cat{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;
+  border-radius:50px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.cat-physical-badge{background:rgba(255,94,26,0.12);color:var(--orange);border:1px solid rgba(255,94,26,0.25)}
+.cat-mental-badge{background:rgba(90,45,130,0.15);color:#a78bfa;border:1px solid rgba(90,45,130,0.3)}
+.cat-nutrition-badge{background:rgba(0,201,167,0.1);color:var(--teal);border:1px solid rgba(0,201,167,0.2)}
+.cat-financial-badge{background:rgba(232,213,181,0.07);color:var(--cream);border:1px solid rgba(232,213,181,0.2)}
+.cat-spiritual-badge{background:rgba(167,139,250,0.08);color:#c4b5fd;border:1px solid rgba(167,139,250,0.2)}
+.post-text{font-size:15px;color:rgba(255,255,255,0.72);line-height:1.75;margin:12px 0 20px}
+.post-actions{display:flex;align-items:center;gap:20px;border-top:1px solid var(--glass-b);padding-top:16px}
+.action-btn{display:flex;align-items:center;gap:6px;background:none;border:none;
+  color:rgba(255,255,255,0.3);font-size:13px;font-weight:500;cursor:pointer;
+  transition:all .3s;padding:4px 0;font-family:'DM Sans'}
+.action-btn:hover{color:var(--orange)}
+.action-btn.liked{color:var(--orange)}
+.action-btn.fired{color:#ff6b35}
+.comments-section{margin-top:16px;border-top:1px solid var(--glass-b);padding-top:16px;display:none}
+.comments-section.open{display:block}
+.comment-item{display:flex;gap:10px;margin-bottom:12px}
+.comment-avatar{width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:10px}
+.comment-body{flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:10px 14px}
+.comment-name{font-weight:600;font-size:12px;margin-bottom:4px}
+.comment-text{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5}
+.comment-input-row{display:flex;gap:10px;margin-top:12px}
+.comment-input{flex:1;background:rgba(255,255,255,0.04);border:1px solid var(--glass-b);
+  border-radius:8px;padding:8px 14px;color:#fff;font-size:13px;font-family:'DM Sans';outline:none}
+.comment-input::placeholder{color:rgba(255,255,255,0.2)}
+.comment-input:focus{border-color:rgba(255,94,26,0.3)}
+.comment-submit{padding:8px 16px;background:rgba(255,94,26,0.15);border:1px solid rgba(255,94,26,0.25);
+  border-radius:6px;color:var(--orange);font-size:12px;font-weight:600;cursor:pointer;transition:all .3s}
+.comment-submit:hover{background:rgba(255,94,26,0.25)}
+
+/* SIDEBAR RIGHT */
+.sidebar-right{padding:32px 24px;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+.trending-tag{display:inline-flex;align-items:center;justify-content:space-between;
+  width:100%;padding:10px 0;border-bottom:1px solid var(--glass-b);cursor:pointer}
+.trending-tag-name{font-size:13px;font-weight:600;color:rgba(255,255,255,0.6);transition:color .3s}
+.trending-tag:hover .trending-tag-name{color:var(--orange)}
+.trending-tag-count{font-size:11px;color:rgba(255,255,255,0.25);font-family:'Space Mono'}
+.member-item{display:flex;align-items:center;gap:12px;padding:10px 0;
+  border-bottom:1px solid var(--glass-b)}
+.member-avatar{width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.member-info{flex:1}
+.member-name{font-size:13px;font-weight:600}
+.member-streak{font-size:11px;color:rgba(255,255,255,0.3)}
+.soulbox-promo{background:linear-gradient(135deg,rgba(45,10,78,0.8),rgba(255,94,26,0.1));
+  border:1px solid rgba(255,94,26,0.2);border-radius:12px;padding:24px;margin-top:24px}
+.soulbox-promo h4{font-family:'Bebas Neue';font-size:24px;letter-spacing:1px;
+  color:var(--orange);margin-bottom:8px}
+.soulbox-promo p{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:16px}
+.soulbox-promo-btn{display:block;text-align:center;padding:10px;background:var(--orange);
+  color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:11px;
+  letter-spacing:2px;text-transform:uppercase;transition:all .3s}
+.soulbox-promo-btn:hover{background:#e54d0a}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:80px 20px;color:rgba(255,255,255,0.2)}
+.empty-state-icon{font-size:48px;margin-bottom:16px;display:block}
+.empty-state h3{font-family:'Bebas Neue';font-size:32px;letter-spacing:2px;margin-bottom:8px;color:rgba(255,255,255,0.4)}
+
+/* JOIN PROMPT */
+.join-prompt{background:var(--card);border:1px solid var(--glass-b);border-radius:12px;
+  padding:32px;margin-bottom:24px;text-align:center}
+.join-prompt h3{font-family:'Bebas Neue';font-size:28px;letter-spacing:1px;margin-bottom:8px}
+.join-prompt p{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:20px}
+.join-form{display:flex;gap:8px;max-width:400px;margin:0 auto}
+.join-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--glass-b);
+  border-radius:6px;padding:10px 16px;color:#fff;font-size:14px;font-family:'DM Sans';outline:none}
+.join-input:focus{border-color:rgba(255,94,26,0.4)}
+.join-submit{padding:10px 20px;background:var(--orange);color:#fff;border:none;
+  border-radius:6px;font-weight:700;font-size:12px;cursor:pointer;transition:all .3s}
+
+/* TOAST */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(100px);
+  background:#1a1a2e;border:1px solid rgba(255,94,26,0.3);border-radius:8px;
+  padding:14px 24px;font-size:14px;font-weight:500;z-index:10000;
+  transition:transform .4s cubic-bezier(.23,1,.32,1);white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:1100px){
+  .layout{grid-template-columns:1fr;grid-template-rows:auto}
+  .sidebar-left,.sidebar-right{display:none}
+  .feed-main{border:none;padding:24px 5%}
+}
+@media(max-width:640px){
+  .composer-body{margin-left:0}
+  .post-actions{gap:12px;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="soulfrut.html" class="topbar-logo">
+    <img src="images/logo-cream.JPG" alt="Soulfrut">
+    <span>Soul<em>frut</em></span>
+  </a>
+  <div class="topbar-right">
+    <a href="soulfrut.html" class="back-link">← Back to Site</a>
+    <button class="post-btn" onclick="openComposer()">+ Share Your Journey</button>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- ═══ SIDEBAR LEFT ═══ -->
+  <aside class="sidebar-left">
+    <div class="sidebar-section">
+      <span class="sidebar-title">Wellness Categories</span>
+      <ul class="cat-filter" id="catFilter">
+        <li><a onclick="setFilter('all')" class="active"><span class="cat-icon">🌟</span> All Posts <span class="cat-count" id="count-all">0</span></a></li>
+        <li><a onclick="setFilter('physical')"><span class="cat-icon">💪</span> Physical <span class="cat-count" id="count-physical">0</span></a></li>
+        <li><a onclick="setFilter('mental')"><span class="cat-icon">🧠</span> Mental <span class="cat-count" id="count-mental">0</span></a></li>
+        <li><a onclick="setFilter('nutrition')"><span class="cat-icon">🥗</span> Nutrition <span class="cat-count" id="count-nutrition">0</span></a></li>
+        <li><a onclick="setFilter('financial')"><span class="cat-icon">💰</span> Financial <span class="cat-count" id="count-financial">0</span></a></li>
+        <li><a onclick="setFilter('spiritual')"><span class="cat-icon">✨</span> Spiritual <span class="cat-count" id="count-spiritual">0</span></a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-title">Your Streak</span>
+      <div class="streak-card">
+        <div class="streak-num" id="streakNum">1</div>
+        <div class="streak-label">Day Streak 🔥</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-title">Wellness Badges</span>
+      <div class="pillar-badges">
+        <div class="pillar-badge earned"><span class="pillar-badge-icon">💪</span> Physical Warrior</div>
+        <div class="pillar-badge earned"><span class="pillar-badge-icon">🥗</span> Nutrition Aligned</div>
+        <div class="pillar-badge"><span class="pillar-badge-icon">🧠</span> Mind Master</div>
+        <div class="pillar-badge"><span class="pillar-badge-icon">💰</span> Wealth Builder</div>
+        <div class="pillar-badge"><span class="pillar-badge-icon">✨</span> Soul Elevated</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══ MAIN FEED ═══ -->
+  <main class="feed-main">
+
+    <!-- Join Prompt (shown if no username) -->
+    <div class="join-prompt" id="joinPrompt">
+      <h3>Welcome to the Wellness Circle</h3>
+      <p>Share your name to post your journey and connect with the Soulfrut community.</p>
+      <div class="join-form">
+        <input type="text" class="join-input" id="usernameInput" placeholder="Your first name..." maxlength="20">
+        <button class="join-submit" onclick="joinCommunity()">Join →</button>
+      </div>
+    </div>
+
+    <!-- Post Composer (hidden until joined) -->
+    <div class="composer" id="composer" style="display:none">
+      <div class="composer-header">
+        <div class="composer-avatar" id="composerAvatar">?</div>
+        <div>
+          <div class="composer-name" id="composerName">Member</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.3)">Share your wellness journey</div>
+        </div>
+      </div>
+      <div class="composer-body">
+        <div class="composer-cats">
+          <button class="cat-pill physical" onclick="selectCat('physical',this)">💪 Physical</button>
+          <button class="cat-pill mental" onclick="selectCat('mental',this)">🧠 Mental</button>
+          <button class="cat-pill nutrition" onclick="selectCat('nutrition',this)">🥗 Nutrition</button>
+          <button class="cat-pill financial" onclick="selectCat('financial',this)">💰 Financial</button>
+          <button class="cat-pill spiritual" onclick="selectCat('spiritual',this)">✨ Spiritual</button>
+        </div>
+        <textarea class="composer-input" id="postInput" placeholder="What's your wellness win today? Share your journey..." maxlength="500"></textarea>
+        <div class="composer-footer">
+          <span class="composer-footer-left" id="charCount">500 characters left</span>
+          <button class="post-submit-btn" id="postSubmitBtn" onclick="submitPost()" disabled>Post to Community</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feed Filters -->
+    <div class="feed-filters" id="feedFilters" style="display:none">
+      <button class="feed-filter active" onclick="setFeedSort('recent',this)">Most Recent</button>
+      <button class="feed-filter" onclick="setFeedSort('top',this)">Top Posts</button>
+      <button class="feed-filter" onclick="setFeedSort('mine',this)">My Posts</button>
+    </div>
+
+    <!-- Posts Feed -->
+    <div id="postsFeed"></div>
+
+  </main>
+
+  <!-- ═══ SIDEBAR RIGHT ═══ -->
+  <aside class="sidebar-right">
+
+    <div class="sidebar-section">
+      <span class="sidebar-title">Trending Topics</span>
+      <div>
+        <div class="trending-tag" onclick="setFilter('physical')">
+          <span class="trending-tag-name">#MorningFuel</span>
+          <span class="trending-tag-count">47 posts</span>
+        </div>
+        <div class="trending-tag" onclick="setFilter('mental')">
+          <span class="trending-tag-name">#MindsetShift</span>
+          <span class="trending-tag-count">38 posts</span>
+        </div>
+        <div class="trending-tag" onclick="setFilter('nutrition')">
+          <span class="trending-tag-name">#SoulBoxDrops</span>
+          <span class="trending-tag-count">31 posts</span>
+        </div>
+        <div class="trending-tag" onclick="setFilter('financial')">
+          <span class="trending-tag-name">#FinancialWellness</span>
+          <span class="trending-tag-count">24 posts</span>
+        </div>
+        <div class="trending-tag" onclick="setFilter('spiritual')">
+          <span class="trending-tag-name">#IntentionalLiving</span>
+          <span class="trending-tag-count">19 posts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-title">Active Members</span>
+      <div>
+        <div class="member-item">
+          <div class="member-avatar" style="background:linear-gradient(135deg,#FF5E1A,#ff9a56)">TK</div>
+          <div class="member-info">
+            <div class="member-name">Tiana K.</div>
+            <div class="member-streak">🔥 14 day streak</div>
+          </div>
+        </div>
+        <div class="member-item">
+          <div class="member-avatar" style="background:linear-gradient(135deg,#5A2D82,#7B4DB0)">MJ</div>
+          <div class="member-info">
+            <div class="member-name">Marcus J.</div>
+            <div class="member-streak">🔥 9 day streak</div>
+          </div>
+        </div>
+        <div class="member-item">
+          <div class="member-avatar" style="background:linear-gradient(135deg,#00C9A7,#2ECC71)">AS</div>
+          <div class="member-info">
+            <div class="member-name">Asha S.</div>
+            <div class="member-streak">🔥 7 day streak</div>
+          </div>
+        </div>
+        <div class="member-item">
+          <div class="member-avatar" style="background:linear-gradient(135deg,#E8D5B5,#c9a55c)">DJ</div>
+          <div class="member-info">
+            <div class="member-name">Devon J.</div>
+            <div class="member-streak">🔥 5 day streak</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="soulbox-promo">
+      <h4>Soul Box</h4>
+      <p>Monthly wellness subscription. Blends, teas, affirmations + member perks. $39/month.</p>
+      <a href="soulfrut.html#soulbox" class="soulbox-promo-btn">Subscribe Now →</a>
+    </div>
+
+  </aside>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══ STATE ═══
+let currentUser = localStorage.getItem('sf_username') || null;
+let currentFilter = 'all';
+let currentSort = 'recent';
+let selectedCat = null;
+
+// ═══ SEED POSTS ═══
+const seedPosts = [
+  {
+    id: 'seed1',
+    name: 'Tiana K.',
+    initials: 'TK',
+    avatarColor: 'linear-gradient(135deg,#FF5E1A,#ff9a56)',
+    cat: 'physical',
+    text: "7th week of morning workouts with my FUEL blend and I've never felt stronger. Down 12 lbs and my energy is through the roof. Soulfrut community keeps me accountable! 🔥 Who else is on a morning routine?",
+    time: Date.now() - 7200000,
+    likes: 41,
+    fires: 24,
+    comments: [
+      {name:'Marcus J.',initials:'MJ',color:'linear-gradient(135deg,#5A2D82,#7B4DB0)',text:'This is inspiring! Keep going! 💪'},
+      {name:'Asha S.',initials:'AS',color:'linear-gradient(135deg,#00C9A7,#2ECC71)',text:'Fuel blend hits different in the morning fr'}
+    ],
+    liked: false,
+    fired: false
+  },
+  {
+    id: 'seed2',
+    name: 'Marcus J.',
+    initials: 'MJ',
+    avatarColor: 'linear-gradient(135deg,#5A2D82,#7B4DB0)',
+    cat: 'financial',
+    text: "Attended the Soulfrut Academy financial literacy session last night. Opened my LLC and started my first business account this MORNING. Financial health really IS wellness. Thank you for the push Soulfrut 🙏 #WealthBuilder #FinancialWellness",
+    time: Date.now() - 18000000,
+    likes: 89,
+    fires: 57,
+    comments: [
+      {name:'Devon J.',initials:'DJ',color:'linear-gradient(135deg,#E8D5B5,#c9a55c)',text:'That workshop was 🔑 for real. Ready to protect my assets!'}
+    ],
+    liked: false,
+    fired: false
+  },
+  {
+    id: 'seed3',
+    name: 'Asha S.',
+    initials: 'AS',
+    avatarColor: 'linear-gradient(135deg,#00C9A7,#2ECC71)',
+    cat: 'nutrition',
+    text: "My Soul Box arrived!! AFTERGLOW is my new favorite recovery blend. Drinking it post-run and I swear my legs recover 2x faster. The affirmation card this month hit different too 💜 'Your body is a temple — fuel it with intention.' Yes!! #SoulBoxDrops",
+    time: Date.now() - 86400000,
+    likes: 62,
+    fires: 33,
+    comments: [],
+    liked: false,
+    fired: false
+  },
+  {
+    id: 'seed4',
+    name: 'Devon J.',
+    initials: 'DJ',
+    avatarColor: 'linear-gradient(135deg,#E8D5B5,#c9a55c)',
+    cat: 'mental',
+    text: "Mental health check-in: started meditating every morning for 10 minutes before my Soulfrut smoothie. The combo of quiet mind + intentional fuel has genuinely changed my days. Less reactive, more focused, more grateful. Try it for 7 days and report back 🧠✨",
+    time: Date.now() - 172800000,
+    likes: 54,
+    fires: 28,
+    comments: [
+      {name:'Tiana K.',initials:'TK',color:'linear-gradient(135deg,#FF5E1A,#ff9a56)',text:'I need to try this. Starting tomorrow!'}
+    ],
+    liked: false,
+    fired: false
+  },
+  {
+    id: 'seed5',
+    name: 'Kenji T.',
+    initials: 'KT',
+    avatarColor: 'linear-gradient(135deg,#667eea,#764ba2)',
+    cat: 'spiritual',
+    text: "Intentional living > reactive living. Started setting a daily intention each morning — one word. Today mine was ABUNDANT. Then got a Soulfrut Blue Mermaid bowl and went to class. Energy was completely different. What's your intention today? ✨ #IntentionalLiving",
+    time: Date.now() - 259200000,
+    likes: 76,
+    fires: 44,
+    comments: [],
+    liked: false,
+    fired: false
+  }
+];
+
+// ═══ INIT ═══
+function init() {
+  // Load posts from localStorage
+  if (!localStorage.getItem('sf_posts')) {
+    localStorage.setItem('sf_posts', JSON.stringify(seedPosts));
+  }
+
+  // Check user
+  if (currentUser) {
+    showComposer();
+  }
+
+  renderFeed();
+  updateCounts();
+}
+
+// ═══ JOIN ═══
+function joinCommunity() {
+  const input = document.getElementById('usernameInput');
+  const name = input.value.trim();
+  if (!name) return;
+
+  currentUser = name;
+  localStorage.setItem('sf_username', name);
+  showComposer();
+  showToast(`Welcome to the Wellness Circle, ${name}! 🌟`);
+}
+
+function showComposer() {
+  document.getElementById('joinPrompt').style.display = 'none';
+  document.getElementById('composer').style.display = 'block';
+  document.getElementById('feedFilters').style.display = 'flex';
+
+  const initials = currentUser.substring(0,2).toUpperCase();
+  document.getElementById('composerAvatar').textContent = initials;
+  document.getElementById('composerName').textContent = currentUser;
+}
+
+// Allow enter on join input
+document.getElementById('usernameInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') joinCommunity();
+});
+
+// ═══ COMPOSER ═══
+function selectCat(cat, el) {
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedCat = cat;
+  checkPostReady();
+}
+
+document.getElementById('postInput').addEventListener('input', function() {
+  const len = this.value.length;
+  document.getElementById('charCount').textContent = `${500 - len} characters left`;
+  checkPostReady();
+});
+
+function checkPostReady() {
+  const hasText = document.getElementById('postInput').value.trim().length > 0;
+  const hasCat = selectedCat !== null;
+  document.getElementById('postSubmitBtn').disabled = !(hasText && hasCat);
+}
+
+function submitPost() {
+  const text = document.getElementById('postInput').value.trim();
+  if (!text || !selectedCat) return;
+
+  const posts = JSON.parse(localStorage.getItem('sf_posts') || '[]');
+  const initials = currentUser.substring(0,2).toUpperCase();
+  const avatarColors = ['linear-gradient(135deg,#FF5E1A,#ff9a56)','linear-gradient(135deg,#5A2D82,#7B4DB0)','linear-gradient(135deg,#00C9A7,#2ECC71)','linear-gradient(135deg,#667eea,#764ba2)'];
+
+  const newPost = {
+    id: `post_${Date.now()}`,
+    name: currentUser,
+    initials,
+    avatarColor: avatarColors[Math.floor(Math.random() * avatarColors.length)],
+    cat: selectedCat,
+    text,
+    time: Date.now(),
+    likes: 0,
+    fires: 0,
+    comments: [],
+    liked: false,
+    fired: false,
+    isOwn: true
+  };
+
+  posts.unshift(newPost);
+  localStorage.setItem('sf_posts', JSON.stringify(posts));
+
+  // Reset composer
+  document.getElementById('postInput').value = '';
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('selected'));
+  selectedCat = null;
+  document.getElementById('charCount').textContent = '500 characters left';
+  document.getElementById('postSubmitBtn').disabled = true;
+
+  renderFeed();
+  updateCounts();
+  showToast('Posted to the Wellness Circle! 🌟');
+
+  // Update streak
+  const streak = parseInt(localStorage.getItem('sf_streak') || '1');
+  localStorage.setItem('sf_streak', streak + 1);
+  document.getElementById('streakNum').textContent = streak + 1;
+}
+
+// ═══ FILTER / SORT ═══
+function setFilter(cat) {
+  currentFilter = cat;
+  document.querySelectorAll('.cat-filter li a').forEach(a => a.classList.remove('active'));
+  const links = document.querySelectorAll('.cat-filter li a');
+  const idx = ['all','physical','mental','nutrition','financial','spiritual'].indexOf(cat);
+  if (links[idx]) links[idx].classList.add('active');
+  renderFeed();
+}
+
+function setFeedSort(sort, el) {
+  currentSort = sort;
+  document.querySelectorAll('.feed-filter').forEach(f => f.classList.remove('active'));
+  el.classList.add('active');
+  renderFeed();
+}
+
+// ═══ RENDER FEED ═══
+function renderFeed() {
+  let posts = JSON.parse(localStorage.getItem('sf_posts') || '[]');
+
+  // Filter
+  if (currentFilter !== 'all') {
+    posts = posts.filter(p => p.cat === currentFilter);
+  }
+  if (currentSort === 'mine') {
+    posts = posts.filter(p => p.name === currentUser);
+  }
+
+  // Sort
+  if (currentSort === 'top') {
+    posts.sort((a,b) => (b.likes + b.fires) - (a.likes + a.fires));
+  } else if (currentSort === 'recent' || currentSort === 'mine') {
+    posts.sort((a,b) => b.time - a.time);
+  }
+
+  const feed = document.getElementById('postsFeed');
+
+  if (posts.length === 0) {
+    feed.innerHTML = `
+      <div class="empty-state">
+        <span class="empty-state-icon">🌱</span>
+        <h3>No posts yet</h3>
+        <p style="font-size:14px;margin-top:8px">Be the first to share your wellness journey!</p>
+      </div>
+    `;
+    return;
+  }
+
+  feed.innerHTML = posts.map(post => renderPost(post)).join('');
+}
+
+function renderPost(post) {
+  const catBadge = {
+    physical: '<span class="post-cat cat-physical-badge">💪 Physical</span>',
+    mental: '<span class="post-cat cat-mental-badge">🧠 Mental</span>',
+    nutrition: '<span class="post-cat cat-nutrition-badge">🥗 Nutrition</span>',
+    financial: '<span class="post-cat cat-financial-badge">💰 Financial</span>',
+    spiritual: '<span class="post-cat cat-spiritual-badge">✨ Spiritual</span>'
+  };
+
+  const timeAgo = getTimeAgo(post.time);
+
+  const comments = (post.comments || []).map(c => `
+    <div class="comment-item">
+      <div class="comment-avatar" style="background:${c.color || 'linear-gradient(135deg,#5A2D82,#7B4DB0)'}">${c.initials}</div>
+      <div class="comment-body">
+        <div class="comment-name">${c.name}</div>
+        <div class="comment-text">${escapeHtml(c.text)}</div>
+      </div>
+    </div>
+  `).join('');
+
+  return `
+    <div class="post-card" id="${post.id}">
+      <div class="post-header">
+        <div class="post-user">
+          <div class="post-avatar" style="background:${post.avatarColor}">${post.initials}</div>
+          <div class="post-meta">
+            <div class="post-name">${post.name}</div>
+            <div class="post-time">${timeAgo}</div>
+          </div>
+        </div>
+        ${catBadge[post.cat] || ''}
+      </div>
+      <p class="post-text">${escapeHtml(post.text)}</p>
+      <div class="post-actions">
+        <button class="action-btn ${post.liked ? 'liked' : ''}" onclick="likePost('${post.id}')">
+          ❤️ ${post.likes}
+        </button>
+        <button class="action-btn ${post.fired ? 'fired' : ''}" onclick="firePost('${post.id}')">
+          🔥 ${post.fires}
+        </button>
+        <button class="action-btn" onclick="toggleComments('${post.id}')">
+          💬 ${post.comments.length} ${post.comments.length === 1 ? 'reply' : 'replies'}
+        </button>
+        ${post.name === currentUser ? `<button class="action-btn" onclick="deletePost('${post.id}')" style="margin-left:auto;color:rgba(255,255,255,0.2)">✕ Delete</button>` : ''}
+      </div>
+      <div class="comments-section" id="comments-${post.id}">
+        <div id="comments-list-${post.id}">${comments}</div>
+        ${currentUser ? `
+        <div class="comment-input-row">
+          <input type="text" class="comment-input" id="comment-input-${post.id}"
+            placeholder="Add your thoughts..." maxlength="200"
+            onkeydown="if(event.key==='Enter')addComment('${post.id}')">
+          <button class="comment-submit" onclick="addComment('${post.id}')">Reply</button>
+        </div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// ═══ INTERACTIONS ═══
+function likePost(id) {
+  const posts = JSON.parse(localStorage.getItem('sf_posts') || '[]');
+  const post = posts.find(p => p.id === id);
+  if (!post) return;
+  post.liked = !post.liked;
+  post.likes += post.liked ? 1 : -1;
+  localStorage.setItem('sf_posts', JSON.stringify(posts));
+  renderFeed();
+}
+
+function firePost(id) {
+  const posts = JSON.parse(localStorage.getItem('sf_posts') || '[]');
+  const post = posts.find(p => p.id === id);
+  if (!post) return;
+  post.fired = !post.fired;
+  post.fires += post.fired ? 1 : -1;
+  localStorage.setItem('sf_posts', JSON.stringify(posts));
+  renderFeed();
+}
+
+function toggleComments(id) {
+  const section = document.getElementById(`comments-${id}`);
+  section.classList.toggle('open');
+}
+
+function addComment(postId) {
+  if (!currentUser) return;
+  const input = document.getElementById(`comment-input-${postId}`);
+  const text = input.value.trim();
+  if (!text) return;
+
+  const posts = JSON.parse(localStorage.getItem('sf_posts') || '[]');
+  const post = posts.find(p => p.id === postId);
+  if (!post) return;
+
+  post.comments.push({
+    name: currentUser,
+    initials: currentUser.substring(0,2).toUpperCase(),
+    color: 'linear-gradient(135deg,#FF5E1A,#ff9a56)',
+    text
+  });
+
+  localStorage.setItem('sf_posts', JSON.stringify(posts));
+  renderFeed();
+
+  // Reopen comments
+  setTimeout(() => {
+    const section = document.getElementById(`comments-${postId}`);
+    if (section) section.classList.add('open');
+  }, 50);
+}
+
+function deletePost(id) {
+  let posts = JSON.parse(localStorage.getItem('sf_posts') || '[]');
+  posts = posts.filter(p => p.id !== id);
+  localStorage.setItem('sf_posts', JSON.stringify(posts));
+  renderFeed();
+  updateCounts();
+  showToast('Post deleted');
+}
+
+// ═══ COUNTS ═══
+function updateCounts() {
+  const posts = JSON.parse(localStorage.getItem('sf_posts') || '[]');
+  const cats = ['physical','mental','nutrition','financial','spiritual'];
+  document.getElementById('count-all').textContent = posts.length;
+  cats.forEach(cat => {
+    const el = document.getElementById(`count-${cat}`);
+    if (el) el.textContent = posts.filter(p => p.cat === cat).length;
+  });
+}
+
+// ═══ UTILS ═══
+function getTimeAgo(time) {
+  const diff = Date.now() - time;
+  const mins = Math.floor(diff / 60000);
+  const hours = Math.floor(diff / 3600000);
+  const days = Math.floor(diff / 86400000);
+  if (mins < 1) return 'Just now';
+  if (mins < 60) return `${mins}m ago`;
+  if (hours < 24) return `${hours}h ago`;
+  if (days === 1) return 'Yesterday';
+  return `${days}d ago`;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function openComposer() {
+  document.getElementById('postInput')?.focus();
+  const composer = document.getElementById('composer');
+  if (composer) composer.scrollIntoView({ behavior: 'smooth' });
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ═══ STREAK ═══
+const streak = parseInt(localStorage.getItem('sf_streak') || '1');
+document.getElementById('streakNum').textContent = streak;
+
+// ═══ ENTER KEY on username ═══
+document.getElementById('usernameInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') joinCommunity();
+});
+
+// ═══ INIT ═══
+init();
+</script>
+</body>
+</html>

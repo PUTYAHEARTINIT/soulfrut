@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOULFRUT — Fuel the Body. Align the Mind. Elevate the Soul.</title>
+<meta name="description" content="Not a smoothie shop. A holistic energy & wellness ecosystem. Intentional nutrition for your mind, body, and soul.">
+<meta property="og:title" content="SOULFRUT — Intentional Living Fuel™">
+<meta property="og:description" content="Mood-based nutrition, wellness community, and intentional living — starting at Georgia Tech.">
+<meta property="og:image" content="images/logo-tropical.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange:#FF5E1A; --orange-glow:rgba(255,94,26,0.25);
+  --purple:#2D0A4E; --purple-mid:#5A2D82; --purple-light:#7B4DB0;
+  --cream:#E8D5B5; --cream-dim:rgba(232,213,181,0.5);
+  --green:#2ECC71; --teal:#00C9A7;
+  --deep:#08020F; --void:#0C0418;
+  --card:rgba(20,8,40,0.85); --glass:rgba(255,255,255,0.04); --glass-b:rgba(255,255,255,0.07);
+  --radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--deep);overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--deep);color:#fff;overflow-x:hidden}
+
+/* GRAIN */
+body::after{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.5}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  width:calc(100% - 40px);max-width:1400px;z-index:1000;padding:10px 28px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(8,2,15,0.75);backdrop-filter:blur(30px) saturate(180%);
+  border:1px solid var(--glass-b);border-radius:16px;transition:all .4s}
+nav.scrolled{padding:8px 28px;background:rgba(8,2,15,0.92)}
+.nav-logo{height:42px;filter:drop-shadow(0 0 10px rgba(255,94,26,0.4))}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:11.5px;
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all .3s}
+.nav-links a:hover{color:#fff;text-shadow:0 0 15px rgba(255,94,26,0.4)}
+.nav-cta{background:var(--orange)!important;color:#fff!important;
+  padding:10px 24px!important;border-radius:6px!important;
+  font-weight:700!important;box-shadow:0 0 20px rgba(255,94,26,0.3)}
+.nav-cta:hover{box-shadow:0 0 35px rgba(255,94,26,0.5)!important;transform:scale(1.04)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(8,2,15,0.98);
+  z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#fff;text-decoration:none;font-size:28px;font-family:'Bebas Neue';
+  letter-spacing:4px;transition:color .3s}
+.mobile-menu a:hover{color:var(--orange)}
+
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding:120px 40px 80px}
+.hero-bg{position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 85%,rgba(120,90,160,0.4) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 70% at 85% 15%,rgba(160,130,190,0.3) 0%,transparent 50%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(140,110,180,0.25) 0%,transparent 60%),
+    radial-gradient(ellipse 100% 100% at 50% 100%,rgba(100,75,140,0.2) 0%,transparent 40%);
+  animation:bgshift 12s ease-in-out infinite}
+@keyframes bgshift{0%,100%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(15deg)}}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:od 20s ease-in-out infinite;pointer-events:none}
+.orb-1{width:600px;height:600px;top:-10%;left:-8%;background:rgba(140,110,180,0.25)}
+.orb-2{width:450px;height:450px;bottom:-15%;right:-8%;background:rgba(255,94,26,0.1);animation-delay:-7s}
+.orb-3{width:300px;height:300px;top:35%;right:15%;background:rgba(0,201,167,0.08);animation-delay:-14s}
+@keyframes od{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-60px) scale(1.1)}66%{transform:translate(-30px,30px) scale(.92)}}
+.hero-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 20%,transparent 80%);z-index:1}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:960px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;
+  background:rgba(255,94,26,0.12);border:1px solid rgba(255,94,26,0.25);
+  border-radius:50px;margin-bottom:32px;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--cream);animation:fu 1s .1s both}
+.hero-badge::before{content:'🔥';font-size:14px}
+.hero-logo-wrap{margin-bottom:24px;animation:fu 1s .3s both}
+.hero-logo{max-width:min(480px,80vw);height:auto;
+  filter:drop-shadow(0 0 60px rgba(45,10,78,0.9)) drop-shadow(0 0 100px rgba(255,94,26,0.25));
+  animation:logo-float 5s ease-in-out infinite}
+@keyframes logo-float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-12px)}}
+.hero-tagline{font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(18px,3vw,28px);color:rgba(255,255,255,0.5);
+  margin:0 0 12px;line-height:1.5;animation:fu 1s .5s both}
+.hero-sub{font-family:'Bebas Neue';font-size:clamp(14px,2vw,18px);
+  letter-spacing:6px;color:var(--cream);opacity:.6;margin-bottom:48px;animation:fu 1s .65s both}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fu 1s .8s both}
+@keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══ BUTTONS ═══ */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;
+  border-radius:6px;font-family:'DM Sans';font-weight:700;font-size:14px;
+  letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;
+  border:none;cursor:pointer;transition:all .4s;position:relative;overflow:hidden}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 0 25px rgba(255,94,26,0.3)}
+.btn-primary:hover{box-shadow:0 0 40px rgba(255,94,26,0.5);transform:translateY(-3px) scale(1.02)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,.7)}
+.btn-outline:hover{border-color:var(--cream);color:var(--cream);box-shadow:0 0 30px rgba(232,213,181,0.1)}
+.btn-purple{background:var(--purple-mid);color:#fff;box-shadow:0 0 25px rgba(90,45,130,0.3)}
+.btn-purple:hover{box-shadow:0 0 40px rgba(90,45,130,0.5);transform:translateY(-3px)}
+.scroll-ind{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;
+  animation:fu 1s 1.2s both}
+.scroll-ind span{font-family:'Space Mono';font-size:8px;letter-spacing:3px;
+  text-transform:uppercase;color:rgba(255,255,255,0.2)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(180deg,rgba(255,94,26,0.5),transparent);
+  animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.3;height:40px}50%{opacity:1;height:60px}}
+
+/* ═══ MARQUEE ═══ */
+.mq-wrap{padding:18px 0;background:var(--purple);overflow:hidden;
+  border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
+.mq-track{display:flex;animation:mqs 30s linear infinite;gap:0;white-space:nowrap}
+.mq-track span{font-family:'Bebas Neue';font-size:15px;letter-spacing:4px;
+  color:rgba(255,255,255,0.85);padding:0 28px;display:flex;align-items:center;gap:28px}
+.mq-track span::after{content:'';width:5px;height:5px;background:var(--orange);border-radius:50%}
+@keyframes mqs{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ SECTION UTILS ═══ */
+.s-label{font-family:'Space Mono';font-size:10px;letter-spacing:5px;
+  text-transform:uppercase;color:var(--orange);margin-bottom:16px;
+  display:flex;align-items:center;gap:12px}
+.s-label::before{content:'';width:24px;height:1px;background:var(--orange)}
+.s-title{font-family:'Bebas Neue';font-size:clamp(42px,7vw,80px);letter-spacing:2px;line-height:1}
+.s-sub{font-size:17px;color:rgba(255,255,255,0.4);line-height:1.8;max-width:600px}
+.section-pad{padding:140px 5%}
+
+/* ═══ PHILOSOPHY ═══ */
+.phi{padding:140px 5%;text-align:center;position:relative;
+  background:radial-gradient(ellipse 60% 50% at 30% 50%,rgba(45,10,78,0.35) 0%,transparent 60%)}
+.phi-inner{max-width:900px;margin:0 auto}
+.phi-quote{font-family:'Playfair Display';font-size:clamp(30px,5vw,60px);
+  font-weight:400;font-style:italic;line-height:1.3;color:rgba(255,255,255,0.88);margin-bottom:40px}
+.phi-quote strong{font-style:normal;color:var(--orange)}
+.phi-desc{font-size:17px;color:rgba(255,255,255,0.4);line-height:1.85;max-width:720px;margin:0 auto 60px}
+.phi-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-width:900px;margin:60px auto 0}
+.phi-stat{padding:36px 24px;background:var(--card);border:1px solid var(--glass-b);text-align:center}
+.phi-stat-num{font-family:'Bebas Neue';font-size:54px;letter-spacing:1px;
+  background:linear-gradient(135deg,var(--orange),var(--cream));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
+.phi-stat-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:4px}
+
+/* ═══ MOOD MENU ═══ */
+.menu-sec{padding:140px 5%;background:var(--void)}
+.menu-tabs{display:flex;gap:8px;margin-bottom:48px;flex-wrap:wrap}
+.tab{padding:10px 24px;border-radius:50px;font-size:12px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:1px solid var(--glass-b);
+  background:transparent;color:rgba(255,255,255,0.45);transition:all .3s}
+.tab.active,.tab:hover{background:var(--orange);border-color:var(--orange);color:#fff;
+  box-shadow:0 0 20px rgba(255,94,26,0.3)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px}
+.menu-card{background:var(--card);border:1px solid var(--glass-b);padding:32px;
+  position:relative;overflow:hidden;cursor:pointer;
+  transition:all .4s cubic-bezier(.23,1,.32,1)}
+.menu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--orange),var(--cream));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.menu-card:hover{transform:translateY(-4px);border-color:rgba(255,94,26,0.2)}
+.menu-card:hover::before{transform:scaleX(1)}
+.menu-card-mood{font-family:'Space Mono';font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.menu-card-name{font-family:'Bebas Neue';font-size:28px;letter-spacing:1px;margin-bottom:8px}
+.menu-card-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;margin-bottom:20px}
+.menu-card-bottom{display:flex;justify-content:space-between;align-items:center}
+.menu-card-price{font-family:'Bebas Neue';font-size:24px;color:var(--cream)}
+.menu-card-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  padding:4px 12px;border-radius:50px;background:rgba(255,94,26,0.1);
+  border:1px solid rgba(255,94,26,0.2);color:var(--orange)}
+.menu-category-title{display:none}
+.menu-category-title.active{display:block}
+
+/* ═══ FULL MENU SECTION ═══ */
+.full-menu{padding:0 5% 140px;text-align:center}
+.menu-image-container{position:relative;max-width:900px;margin:40px auto 0;
+  border-radius:16px;overflow:hidden;border:1px solid var(--glass-b)}
+.menu-image-container img{width:100%;display:block}
+.menu-cta{margin-top:32px}
+
+/* ═══ SHOP ═══ */
+.shop-sec{padding:140px 5%;
+  background:radial-gradient(ellipse 50% 60% at 80% 50%,rgba(255,94,26,0.05) 0%,transparent 60%)}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-top:64px}
+.shop-card{background:var(--card);border:1px solid var(--glass-b);border-radius:var(--radius);
+  overflow:hidden;transition:all .4s cubic-bezier(.23,1,.32,1)}
+.shop-card:hover{transform:translateY(-6px);border-color:rgba(255,94,26,0.25);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.shop-card-img{width:100%;height:280px;object-fit:cover;display:block}
+.shop-card-body{padding:28px}
+.shop-card-badge{font-family:'Space Mono';font-size:9px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
+.shop-card-name{font-family:'Bebas Neue';font-size:28px;letter-spacing:1px;margin-bottom:8px}
+.shop-card-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;margin-bottom:20px}
+.shop-card-footer{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.shop-card-price{font-family:'Bebas Neue';font-size:32px;color:var(--cream)}
+.shop-card-price span{font-size:14px;color:rgba(255,255,255,0.3);font-family:'DM Sans';font-weight:400}
+.shop-buy-btn{padding:12px 24px;background:var(--orange);color:#fff;border:none;
+  border-radius:6px;font-weight:700;font-size:12px;letter-spacing:2px;
+  text-transform:uppercase;cursor:pointer;text-decoration:none;
+  transition:all .3s;display:inline-flex;align-items:center;gap:8px}
+.shop-buy-btn:hover{background:#e54d0a;box-shadow:0 0 25px rgba(255,94,26,0.4);transform:translateY(-2px)}
+
+/* ═══ SOUL BOX ═══ */
+.soulbox-sec{padding:140px 5%;
+  background:linear-gradient(135deg,rgba(45,10,78,0.5) 0%,rgba(8,2,15,1) 50%,rgba(255,94,26,0.05) 100%)}
+.soulbox-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
+.soulbox-img{border-radius:16px;overflow:hidden;position:relative}
+.soulbox-img img{width:100%;display:block;border-radius:16px}
+.soulbox-img::after{content:'';position:absolute;inset:0;border-radius:16px;
+  box-shadow:0 0 80px rgba(255,94,26,0.2),inset 0 0 80px rgba(45,10,78,0.2)}
+.soulbox-content .s-title{background:linear-gradient(135deg,var(--orange),var(--cream));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
+.soulbox-content p{font-size:17px;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:32px}
+.soulbox-includes{list-style:none;margin-bottom:40px}
+.soulbox-includes li{display:flex;align-items:center;gap:12px;padding:12px 0;
+  border-bottom:1px solid var(--glass-b);font-size:14px;color:rgba(255,255,255,0.65)}
+.soulbox-includes li::before{content:'✦';color:var(--orange);font-size:12px;flex-shrink:0}
+.soulbox-price{display:flex;align-items:baseline;gap:8px;margin-bottom:32px}
+.soulbox-price-num{font-family:'Bebas Neue';font-size:64px;color:var(--orange)}
+.soulbox-price-period{font-size:15px;color:rgba(255,255,255,0.4)}
+
+/* ═══ PILLARS / ECOSYSTEM ═══ */
+.ecosystem{padding:140px 5%;background:var(--void)}
+.ecosystem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:80px;max-width:1200px}
+.eco-card{position:relative;overflow:hidden;cursor:pointer;min-height:480px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  transition:all .5s cubic-bezier(.23,1,.32,1)}
+.eco-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .6s cubic-bezier(.23,1,.32,1);filter:brightness(.4) saturate(.8)}
+.eco-card:hover img{transform:scale(1.05);filter:brightness(.35) saturate(1)}
+.eco-card::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(8,2,15,.95) 30%,transparent 70%);z-index:1}
+.eco-card-content{position:relative;z-index:2;padding:40px;transition:all .4s}
+.eco-card-icon{font-size:32px;margin-bottom:16px;display:block}
+.eco-card-label{font-family:'Space Mono';font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
+.eco-card-title{font-family:'Bebas Neue';font-size:40px;letter-spacing:1px;
+  margin-bottom:12px;line-height:1}
+.eco-card-desc{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;
+  max-height:0;overflow:hidden;transition:max-height .5s,opacity .4s;opacity:0}
+.eco-card:hover .eco-card-desc{max-height:120px;opacity:1}
+.eco-card-cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--orange);text-decoration:none;opacity:0;transform:translateY(8px);
+  transition:all .4s;transition-delay:.1s}
+.eco-card:hover .eco-card-cta{opacity:1;transform:translateY(0)}
+.eco-card-cta::after{content:'→'}
+
+/* ═══ ABOUT / STORY ═══ */
+.about-sec{padding:140px 5%;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 60% 80% at 100% 50%,rgba(45,10,78,0.3) 0%,transparent 60%)}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
+.about-img-stack{position:relative;height:600px}
+.about-img-main{position:absolute;top:0;left:0;width:75%;height:80%;
+  object-fit:cover;border-radius:12px;
+  box-shadow:0 40px 80px rgba(0,0,0,0.5)}
+.about-img-accent{position:absolute;bottom:0;right:0;width:55%;height:55%;
+  object-fit:cover;border-radius:12px;border:3px solid var(--purple);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.about-badge{display:inline-block;padding:6px 16px;background:rgba(255,94,26,0.1);
+  border:1px solid rgba(255,94,26,0.25);border-radius:50px;
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
+.about-text{font-size:17px;color:rgba(255,255,255,0.45);line-height:1.85;margin-bottom:24px}
+.about-highlight{font-family:'Playfair Display';font-style:italic;font-size:22px;
+  color:var(--cream);border-left:3px solid var(--orange);padding-left:24px;margin:32px 0;line-height:1.6}
+
+/* ═══ TESTIMONIALS ═══ */
+.proof-sec{padding:140px 5%;background:var(--void);text-align:center}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px;text-align:left}
+.proof-card{background:var(--card);border:1px solid var(--glass-b);padding:40px 32px;
+  position:relative;transition:all .4s}
+.proof-card:hover{border-color:rgba(255,94,26,0.2);transform:translateY(-4px)}
+.proof-stars{color:var(--orange);font-size:16px;letter-spacing:2px;margin-bottom:20px;display:block}
+.proof-quote{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.75;margin-bottom:28px;
+  font-style:italic}
+.proof-author{display:flex;align-items:center;gap:12px}
+.proof-avatar{width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--orange),var(--purple-mid));
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.proof-name{font-weight:600;font-size:14px}
+.proof-role{font-size:12px;color:rgba(255,255,255,0.35)}
+
+/* ═══ COMMUNITY PREVIEW ═══ */
+.community-preview{padding:140px 5%;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(45,10,78,0.4) 0%,transparent 60%)}
+.community-preview-inner{max-width:1200px;margin:0 auto}
+.community-header{text-align:center;margin-bottom:80px}
+.community-feed-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.feed-card{background:var(--card);border:1px solid var(--glass-b);border-radius:var(--radius);
+  padding:28px;transition:all .3s}
+.feed-card:hover{border-color:rgba(255,94,26,0.2);transform:translateY(-3px)}
+.feed-card-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.feed-avatar{width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.feed-avatar.orange{background:linear-gradient(135deg,var(--orange),#ff9a56)}
+.feed-avatar.purple{background:linear-gradient(135deg,var(--purple-mid),var(--purple-light))}
+.feed-avatar.teal{background:linear-gradient(135deg,var(--teal),var(--green))}
+.feed-name{font-weight:600;font-size:13px}
+.feed-time{font-size:11px;color:rgba(255,255,255,0.3)}
+.feed-category{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;
+  border-radius:50px;font-size:10px;letter-spacing:1px;font-weight:600;text-transform:uppercase;
+  margin-bottom:12px}
+.cat-physical{background:rgba(255,94,26,0.12);color:var(--orange);border:1px solid rgba(255,94,26,0.2)}
+.cat-mental{background:rgba(90,45,130,0.2);color:#a78bfa;border:1px solid rgba(90,45,130,0.3)}
+.cat-nutrition{background:rgba(0,201,167,0.12);color:var(--teal);border:1px solid rgba(0,201,167,0.2)}
+.feed-text{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;margin-bottom:16px}
+.feed-reactions{display:flex;gap:12px}
+.reaction{display:flex;align-items:center;gap:5px;font-size:12px;color:rgba(255,255,255,0.35);cursor:pointer;transition:color .3s}
+.reaction:hover{color:var(--orange)}
+.community-cta{text-align:center}
+
+/* ═══ FINALE / CTA ═══ */
+.finale{padding:180px 5%;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(45,10,78,0.6) 0%,rgba(8,2,15,1) 50%,rgba(255,94,26,0.08) 100%)}
+.finale-orb{position:absolute;width:800px;height:800px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,94,26,0.08) 0%,transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.finale-title{font-family:'Bebas Neue';font-size:clamp(60px,12vw,140px);
+  letter-spacing:2px;line-height:.9;margin-bottom:32px;
+  background:linear-gradient(135deg,#fff 0%,var(--cream) 40%,var(--orange) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.finale-sub{font-family:'Playfair Display';font-style:italic;font-size:clamp(18px,3vw,28px);
+  color:rgba(255,255,255,0.4);margin-bottom:56px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6}
+.finale-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--void);border-top:1px solid var(--glass-b);padding:80px 5% 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px}
+.footer-logo{height:48px;margin-bottom:20px;filter:drop-shadow(0 0 8px rgba(255,94,26,0.3))}
+.footer-about{font-size:14px;color:rgba(255,255,255,0.35);line-height:1.7;max-width:300px}
+.footer-col h4{font-family:'Space Mono';font-size:10px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:var(--cream)}
+.footer-bottom{padding-top:32px;border-top:1px solid var(--glass-b);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.2)}
+.footer-social{display:flex;gap:16px}
+.social-link{width:36px;height:36px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-b);
+  display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:14px;
+  transition:all .3s}
+.social-link:hover{border-color:var(--orange);background:rgba(255,94,26,0.1)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .phi-stats{grid-template-columns:repeat(2,1fr)}
+  .soulbox-inner{grid-template-columns:1fr;gap:48px}
+  .ecosystem-grid{grid-template-columns:1fr}
+  .about-inner{grid-template-columns:1fr;gap:48px}
+  .about-img-stack{height:400px}
+  .proof-grid{grid-template-columns:1fr;max-width:500px;margin-left:auto;margin-right:auto}
+  .community-feed-preview{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav{width:calc(100% - 24px);padding:10px 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{padding:100px 24px 60px}
+  .phi-stats{grid-template-columns:repeat(2,1fr)}
+  .menu-tabs{gap:6px}
+  .shop-grid{grid-template-columns:1fr}
+  .ecosystem-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .finale-actions{flex-direction:column;align-items:center}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+
+/* Utilities */
+nav,section,.hero,.mq-wrap,.phi,.pillars,.menu-sec,.full-menu,.shop-sec,
+.soulbox-sec,.ecosystem,.about-sec,.proof-sec,.community-preview,.finale,footer{
+  position:relative;z-index:1}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav id="nav">
+  <img src="images/logo-cream.JPG" alt="Soulfrut" class="nav-logo" style="border-radius:50%;object-fit:cover;width:42px;height:42px;">
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#soulbox">Soul Box</a></li>
+    <li><a href="#ecosystem">Ecosystem</a></li>
+    <li><a href="#story">Story</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="#order" class="nav-cta">Order Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu" onclick="toggleMenu()">Menu</a>
+  <a href="#shop" onclick="toggleMenu()">Shop</a>
+  <a href="#soulbox" onclick="toggleMenu()">Soul Box</a>
+  <a href="#ecosystem" onclick="toggleMenu()">Ecosystem</a>
+  <a href="#story" onclick="toggleMenu()">Story</a>
+  <a href="community.html" onclick="toggleMenu()">Community</a>
+  <a href="#order" onclick="toggleMenu()" style="color:var(--orange)">Order Now →</a>
+</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Georgia Tech Wellness Bar · Est. Atlanta, GA</div>
+    <div class="hero-logo-wrap">
+      <img src="images/logo-tropical.png" alt="Soulfrut" class="hero-logo">
+    </div>
+    <p class="hero-tagline">"Fuel the Body. Align the Mind. Elevate the Soul."</p>
+    <p class="hero-sub">Intentional Living Fuel™</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn btn-primary">Explore the Menu</a>
+      <a href="#soulbox" class="btn btn-outline">Get Soul Box</a>
+      <a href="community.html" class="btn btn-purple">Join the Community</a>
+    </div>
+  </div>
+
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ MARQUEE ═══════════════════════ -->
+<div class="mq-wrap">
+  <div class="mq-track">
+    <span>Mind</span><span>Body</span><span>Soul</span>
+    <span>Intentional Living Fuel™</span><span>Mood-Based Nutrition</span>
+    <span>Campus Wellness</span><span>Community</span><span>Financial Health</span>
+    <span>Energy Alignment</span><span>Recovery</span><span>Performance</span>
+    <span>Mind</span><span>Body</span><span>Soul</span>
+    <span>Intentional Living Fuel™</span><span>Mood-Based Nutrition</span>
+    <span>Campus Wellness</span><span>Community</span><span>Financial Health</span>
+    <span>Energy Alignment</span><span>Recovery</span><span>Performance</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ PHILOSOPHY ═══════════════════════ -->
+<section class="phi" id="philosophy">
+  <div class="phi-inner">
+    <div class="s-label" style="justify-content:center">Our Philosophy</div>
+    <h2 class="phi-quote">
+      This is <strong>not a smoothie shop.</strong><br>
+      This is a holistic energy &<br>wellness ecosystem.
+    </h2>
+    <p class="phi-desc">
+      SOUL FRUT was born from a simple truth: real wellness goes deeper than dieting or gym routines.
+      True wellness is intentional living — fueling your body, aligning your mind, empowering your finances,
+      healing your community, and elevating your soul. Every blend we craft, every bowl we build,
+      is designed with purpose.
+    </p>
+
+    <div class="phi-stats">
+      <div class="phi-stat">
+        <span class="phi-stat-num">5</span>
+        <span class="phi-stat-label">Wellness Pillars</span>
+      </div>
+      <div class="phi-stat">
+        <span class="phi-stat-num">6+</span>
+        <span class="phi-stat-label">Campus Locations</span>
+      </div>
+      <div class="phi-stat">
+        <span class="phi-stat-num">20+</span>
+        <span class="phi-stat-label">Menu Items</span>
+      </div>
+      <div class="phi-stat">
+        <span class="phi-stat-num">∞</span>
+        <span class="phi-stat-label">Community Impact</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ MOOD MENU ═══════════════════════ -->
+<section class="menu-sec" id="menu">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="s-label">Mood-Based Nutrition</div>
+    <h2 class="s-title">The Menu</h2>
+    <p class="s-sub" style="margin:20px 0 48px">Every item crafted around your mood, your goals, your energy.</p>
+
+    <div class="menu-tabs">
+      <button class="tab active" onclick="filterMenu('all')">All Items</button>
+      <button class="tab" onclick="filterMenu('protein')">Power Proteins</button>
+      <button class="tab" onclick="filterMenu('crush')">Fresh Crushes</button>
+      <button class="tab" onclick="filterMenu('bowl')">Soul Bowls</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FULL MENU IMAGE ═══════════════════════ -->
+<section class="full-menu">
+  <div style="max-width:1200px;margin:0 auto;text-align:center">
+    <div class="s-label" style="justify-content:center">Georgia Tech Wellness Bar</div>
+    <h2 class="s-title">Full Menu</h2>
+    <p class="s-sub" style="margin:20px auto 0;text-align:center">Find us on campus — serving the GT community daily.</p>
+    <div class="menu-image-container">
+      <img src="images/menu.PNG" alt="Soulfrut Full Menu" loading="lazy">
+    </div>
+    <div class="menu-cta">
+      <a href="#order" class="btn btn-primary" style="margin-top:32px">Order Your Fuel</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SHOP ═══════════════════════ -->
+<section class="shop-sec" id="shop">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="s-label">Intentional Living Fuel™</div>
+    <h2 class="s-title">The Shop</h2>
+    <p class="s-sub" style="margin:20px 0 0">Premium packaged products to fuel your journey — wherever you are.</p>
+
+    <div class="shop-grid">
+
+      <div class="shop-card">
+        <img src="images/bottles.PNG" alt="Soulfrut Bottles" class="shop-card-img">
+        <div class="shop-card-body">
+          <span class="shop-card-badge">⚡ Energy</span>
+          <div class="shop-card-name">FUEL Blend</div>
+          <div class="shop-card-desc">Tropical energy fusion. Pineapple-mango-citrus with natural energizers. Pre-workout or morning boost.</div>
+          <div class="shop-card-footer">
+            <div class="shop-card-price">$14.99 <span>/ bottle</span></div>
+            <a href="#order" class="shop-buy-btn">Buy Now →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card">
+        <img src="images/bottles.PNG" alt="Afterglow" class="shop-card-img" style="object-position:center">
+        <div class="shop-card-body">
+          <span class="shop-card-badge">🌿 Recovery</span>
+          <div class="shop-card-name">AFTERGLOW</div>
+          <div class="shop-card-desc">Post-workout recovery blend. Green goodness with adaptogens. Reduce inflammation, restore balance.</div>
+          <div class="shop-card-footer">
+            <div class="shop-card-price">$14.99 <span>/ bottle</span></div>
+            <a href="#order" class="shop-buy-btn">Buy Now →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card">
+        <img src="images/bowls.PNG" alt="Soul Bowls" class="shop-card-img">
+        <div class="shop-card-body">
+          <span class="shop-card-badge">💜 Mood</span>
+          <div class="shop-card-name">MAKIN' CAKES</div>
+          <div class="shop-card-desc">Purple power. Blueberry-açaí-grape blend with mood-boosting antioxidants. Treat yourself right.</div>
+          <div class="shop-card-footer">
+            <div class="shop-card-price">$14.99 <span>/ bottle</span></div>
+            <a href="#order" class="shop-buy-btn">Buy Now →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SOUL BOX ═══════════════════════ -->
+<section class="soulbox-sec" id="soulbox">
+  <div class="soulbox-inner">
+    <div class="soulbox-img">
+      <img src="images/soulbox.PNG" alt="Soul Box Monthly Subscription" loading="lazy">
+    </div>
+    <div class="soulbox-content">
+      <div class="s-label">Monthly Subscription</div>
+      <h2 class="s-title">Soul Box</h2>
+      <p>Your monthly wellness ritual, delivered. Curated blends, seasonal drops, exclusive perks, and intentional fuel — straight to your door every month.</p>
+      <ul class="soulbox-includes">
+        <li>2–3 premium blend pouches (rotating flavors)</li>
+        <li>1 wellness tea or hydration packet</li>
+        <li>Affirmation card — mindset + financial tip</li>
+        <li>Exclusive member discount (10% off all orders)</li>
+        <li>First access to new product drops</li>
+        <li>Soulfrut stickers + community access</li>
+      </ul>
+      <div class="soulbox-price">
+        <span class="soulbox-price-num">$39</span>
+        <span class="soulbox-price-period">/ month · cancel anytime</span>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#order" class="btn btn-primary">Subscribe to Soul Box</a>
+        <a href="community.html" class="btn btn-outline">Join the Community</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ECOSYSTEM / PILLARS ═══════════════════════ -->
+<section class="ecosystem" id="ecosystem">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="s-label">The Soulfrut Ecosystem</div>
+    <h2 class="s-title">More Than a Brand</h2>
+    <p class="s-sub" style="margin:20px 0 0">Five pillars. One mission. Whole-person wellness for real people.</p>
+
+    <div class="ecosystem-grid">
+
+      <div class="eco-card">
+        <img src="images/booth-event.PNG" alt="Campus Presence" loading="lazy">
+        <div class="eco-card-content">
+          <span class="eco-card-icon">🎓</span>
+          <span class="eco-card-label">Pillar 01</span>
+          <div class="eco-card-title">Campus Dominance</div>
+          <div class="eco-card-desc">Starting at Georgia Tech and expanding across every major Atlanta university — Spelman, Morehouse, Clark Atlanta, GSU, Emory, and beyond. We're building a campus wellness movement one location at a time.</div>
+          <a href="#order" class="eco-card-cta">Find Us on Campus</a>
+        </div>
+      </div>
+
+      <div class="eco-card">
+        <img src="images/corporate.PNG" alt="Corporate Wellness" loading="lazy">
+        <div class="eco-card-content">
+          <span class="eco-card-icon">🏢</span>
+          <span class="eco-card-label">Pillar 02</span>
+          <div class="eco-card-title">Corporate Wellness</div>
+          <div class="eco-card-desc">Employee wellness activation programs, mental health nutrition packages, on-site smoothie bars, and custom wellness events. Contracts from $10K–$100K+. Fuel your team, elevate performance.</div>
+          <a href="#order" class="eco-card-cta">Book a Corporate Event</a>
+        </div>
+      </div>
+
+      <div class="eco-card">
+        <img src="images/academy.PNG" alt="Soulfrut Academy" loading="lazy">
+        <div class="eco-card-content">
+          <span class="eco-card-icon">📚</span>
+          <span class="eco-card-label">Pillar 03</span>
+          <div class="eco-card-title">Soulfrut Academy</div>
+          <div class="eco-card-desc">Financial health IS overall wellness. Workshops on LLC formation, trust education, money-flow awareness, and wealth mindset. Because a healthy bank account feeds the soul too.</div>
+          <a href="community.html" class="eco-card-cta">Join the Academy</a>
+        </div>
+      </div>
+
+      <div class="eco-card" style="background:linear-gradient(135deg,rgba(45,10,78,0.9),rgba(8,2,15,0.9))">
+        <img src="images/bowls.PNG" alt="Community" loading="lazy">
+        <div class="eco-card-content">
+          <span class="eco-card-icon">🌱</span>
+          <span class="eco-card-label">Pillar 04</span>
+          <div class="eco-card-title">The Community</div>
+          <div class="eco-card-desc">A movement of intentional people sharing their wellness journey. Post your wins, share your progress, ask for support. Physical, mental, nutritional, financial, and spiritual wellness — all welcome here.</div>
+          <a href="community.html" class="eco-card-cta">Join the Movement</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ABOUT / STORY ═══════════════════════ -->
+<section class="about-sec" id="story">
+  <div class="about-inner">
+    <div class="about-img-stack">
+      <img src="images/booth-event.PNG" alt="Soulfrut at events" class="about-img-main">
+      <img src="images/bowls.PNG" alt="Soul Bowls" class="about-img-accent">
+    </div>
+    <div class="about-content">
+      <span class="about-badge">Origin Story</span>
+      <div class="s-label">Georgia Tech → The World</div>
+      <h2 class="s-title" style="margin-bottom:32px">Born on Campus.<br>Built for a Movement.</h2>
+      <p class="about-text">
+        SOULFRUT didn't start in a boardroom. It started with a simple belief — that the food you eat and the mindset you carry can completely change your life. We began fueling Georgia Tech students with nutrient-dense smoothies, protein bowls, and fresh crushes built around mood and performance.
+      </p>
+      <div class="about-highlight">
+        "We're not just selling smoothies. We're selling a lifestyle, a philosophy, and a community built on intentional living."
+      </div>
+      <p class="about-text">
+        Today, SOULFRUT is evolving into a multi-channel wellness ecosystem — packaged products, corporate contracts, campus expansion, financial literacy education, and a thriving community of people committed to fueling their mind, body, and soul on purpose.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:40px">
+        <a href="#ecosystem" class="btn btn-primary">Our Ecosystem</a>
+        <a href="community.html" class="btn btn-outline">Join the Movement</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+<section class="proof-sec" id="proof">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="s-label" style="justify-content:center">Community Voices</div>
+    <h2 class="s-title">Real People. Real Results.</h2>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <span class="proof-stars">★★★★★</span>
+        <p class="proof-quote">"Started getting the Rise N Grind before every 8am class. My focus is insane now. Soulfrut literally got me through finals week."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">KJ</div>
+          <div>
+            <div class="proof-name">Kenji J.</div>
+            <div class="proof-role">Georgia Tech, CS Major</div>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <span class="proof-stars">★★★★★</span>
+        <p class="proof-quote">"The Bless Your Soul bowl is everything. And the community workshops on building LLCs? That changed how I think about my future. This brand does it all."</p>
+        <div class="proof-author">
+          <div class="proof-avatar" style="background:linear-gradient(135deg,#5A2D82,#7B4DB0)">MR</div>
+          <div>
+            <div class="proof-name">Maya R.</div>
+            <div class="proof-role">Spelman College</div>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <span class="proof-stars">★★★★★</span>
+        <p class="proof-quote">"We brought Soulfrut in for our corporate wellness day. The team was professional, the product was incredible, and our employees haven't stopped talking about it."</p>
+        <div class="proof-author">
+          <div class="proof-avatar" style="background:linear-gradient(135deg,var(--teal),var(--green))">DW</div>
+          <div>
+            <div class="proof-name">David W.</div>
+            <div class="proof-role">HR Director, Atlanta</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ COMMUNITY PREVIEW ═══════════════════════ -->
+<section class="community-preview" id="community">
+  <div class="community-preview-inner">
+    <div class="community-header">
+      <div class="s-label" style="justify-content:center">Member Community</div>
+      <h2 class="s-title">The Wellness Circle</h2>
+      <p class="s-sub" style="margin:20px auto 0;text-align:center;max-width:580px">
+        A living, breathing community of people fueling their journey. Share your wins, track your growth, inspire others.
+      </p>
+    </div>
+
+    <div class="community-feed-preview">
+      <div class="feed-card">
+        <div class="feed-card-header">
+          <div class="feed-avatar orange">TK</div>
+          <div>
+            <div class="feed-name">Tiana K.</div>
+            <div class="feed-time">2 hours ago</div>
+          </div>
+        </div>
+        <span class="feed-category cat-physical">💪 Physical</span>
+        <p class="feed-text">"7th week of morning workouts with my FUEL blend and I've never felt stronger. Down 12 lbs and my energy is through the roof. Soulfrut community keeps me accountable! 🔥"</p>
+        <div class="feed-reactions">
+          <span class="reaction">🔥 24</span>
+          <span class="reaction">💬 8 replies</span>
+          <span class="reaction">❤️ 41</span>
+        </div>
+      </div>
+      <div class="feed-card">
+        <div class="feed-card-header">
+          <div class="feed-avatar purple">MJ</div>
+          <div>
+            <div class="feed-name">Marcus J.</div>
+            <div class="feed-time">5 hours ago</div>
+          </div>
+        </div>
+        <span class="feed-category cat-mental">🧠 Mental</span>
+        <p class="feed-text">"Attended the Academy financial literacy session last night. Opened my LLC and started my first business account this morning. Financial health really IS wellness. Thank you Soulfrut 🙏"</p>
+        <div class="feed-reactions">
+          <span class="reaction">🔥 57</span>
+          <span class="reaction">💬 22 replies</span>
+          <span class="reaction">❤️ 89</span>
+        </div>
+      </div>
+      <div class="feed-card">
+        <div class="feed-card-header">
+          <div class="feed-avatar teal">AS</div>
+          <div>
+            <div class="feed-name">Asha S.</div>
+            <div class="feed-time">Yesterday</div>
+          </div>
+        </div>
+        <span class="feed-category cat-nutrition">🥗 Nutrition</span>
+        <p class="feed-text">"My Soul Box arrived!! AFTERGLOW is my new favorite recovery blend. Drinking it post-run and I swear my legs recover 2x faster. The affirmation card this month hit different too 💜"</p>
+        <div class="feed-reactions">
+          <span class="reaction">🔥 33</span>
+          <span class="reaction">💬 14 replies</span>
+          <span class="reaction">❤️ 62</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="community-cta">
+      <a href="community.html" class="btn btn-primary" style="font-size:16px;padding:20px 48px">
+        Join the Wellness Circle →
+      </a>
+      <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.3)">Free to join · Share your journey · Connect with others</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FINALE ═══════════════════════ -->
+<section class="finale" id="order">
+  <div class="finale-orb"></div>
+  <div class="s-label" style="justify-content:center;margin-bottom:32px">Start Your Journey</div>
+  <h2 class="finale-title">FUEL<br>YOUR SOUL</h2>
+  <p class="finale-sub">"The moment you choose intention over impulse, everything changes."</p>
+  <div class="finale-actions">
+    <a href="#menu" class="btn btn-primary" style="padding:20px 48px;font-size:16px">Explore the Menu</a>
+    <a href="#soulbox" class="btn btn-outline" style="padding:20px 48px;font-size:16px">Subscribe to Soul Box</a>
+    <a href="community.html" class="btn btn-purple" style="padding:20px 48px;font-size:16px">Join the Community</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="footer-grid" style="max-width:1200px;margin:0 auto 60px">
+    <div>
+      <img src="images/logo-cream.JPG" alt="Soulfrut" class="footer-logo" style="border-radius:50%;object-fit:cover;width:48px;height:48px;">
+      <p class="footer-about" style="margin-top:16px">
+        Not a smoothie shop. A holistic energy & wellness ecosystem fueling the mind, body, and soul of communities across Atlanta and beyond.
+      </p>
+      <p style="margin-top:16px;font-size:12px;color:rgba(255,255,255,0.2);font-family:'Space Mono';letter-spacing:2px">GEORGIA TECH · ATLANTA, GA</p>
+    </div>
+    <div>
+      <h4>Menu</h4>
+      <ul class="footer-links">
+        <li><a href="#menu">Power Proteins</a></li>
+        <li><a href="#menu">Fresh Crushes</a></li>
+        <li><a href="#menu">Soul Bowls</a></li>
+        <li><a href="#shop">Packaged Products</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ecosystem</h4>
+      <ul class="footer-links">
+        <li><a href="#soulbox">Soul Box</a></li>
+        <li><a href="#ecosystem">Campus Locations</a></li>
+        <li><a href="#ecosystem">Corporate Wellness</a></li>
+        <li><a href="#ecosystem">Soulfrut Academy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul class="footer-links">
+        <li><a href="community.html">Community</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#order">Order Now</a></li>
+        <li><a href="mailto:hello@soulfrut.com">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom" style="max-width:1200px;margin:0 auto">
+    <p>© 2026 SOULFRUT. All rights reserved. Intentional Living Fuel™</p>
+    <div class="footer-social">
+      <a href="#" class="social-link">📸</a>
+      <a href="#" class="social-link">🎵</a>
+      <a href="#" class="social-link">𝕏</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══ NAV SCROLL ═══
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ═══ MOBILE MENU ═══
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ═══ MENU DATA ═══
+const menuItems = [
+  // Power Proteins
+  {cat:'protein', mood:'⚡ Energy', name:'Old Soul', desc:'Almond milk base with banana, strawberry & protein. The OG that started it all.', price:'$8.99', tag:'Best Seller'},
+  {cat:'protein', mood:'🎂 Mood', name:"Makin' Cakes", desc:'Blueberry, açaí, vanilla & protein. Like dessert that loves you back.', price:'$8.99', tag:'Fan Favorite'},
+  {cat:'protein', mood:'🌊 Recovery', name:'Blue Mermaid', desc:'Spirulina, pineapple, coconut milk & protein. Oceanic recovery blend.', price:'$8.99', tag:'Antioxidant'},
+  {cat:'protein', mood:'⚡ Energy', name:'Fuel', desc:'Pineapple, mango, citrus & protein. Pre-workout in a cup.', price:'$8.99', tag:'Pre-Workout'},
+  {cat:'protein', mood:'☀️ Morning', name:'Rise N Grind', desc:'Cold brew, banana, oat milk & protein. Morning fuel for the ambitious.', price:'$8.99', tag:'Morning Boost'},
+  {cat:'protein', mood:'🌿 Recovery', name:'Recovery', desc:'Tart cherry, beet, ginger & protein. Muscle recovery. Science-backed.', price:'$8.99', tag:'Post-Workout'},
+
+  // Fresh Crushes
+  {cat:'crush', mood:'☀️ Morning', name:'The Wake Up Call', desc:'Orange, lemon, ginger, turmeric. Immunity shot meets morning ritual.', price:'$8.99', tag:'Immunity'},
+  {cat:'crush', mood:'💪 Focus', name:'PB Power', desc:'Peanut butter, banana, honey, oat milk. Focus fuel for long days.', price:'$8.99', tag:'Focus'},
+  {cat:'crush', mood:'🌟 Elevate', name:'Golden Soul', desc:'Mango, passion fruit, honey, lemon. Pure sunshine in every sip.', price:'$7.99', tag:'Elevate'},
+  {cat:'crush', mood:'🌿 Recovery', name:'Afterglow', desc:'Watermelon, mint, cucumber, lime. Post-workout hydration perfected.', price:'$7.99', tag:'Hydration'},
+  {cat:'crush', mood:'💫 Boost', name:'Soul Boost', desc:'Seasonal BJOC blend with vitamin shots. Limited drops, big energy.', price:'$7.99', tag:'Limited'},
+  {cat:'crush', mood:'🍑 Fresh', name:'GA Peach', desc:'Georgia peach, ginger, honey, lemon. A love letter to the A.', price:'$7.99', tag:'Local Pride'},
+
+  // Soul Bowls
+  {cat:'bowl', mood:'⚡ Energy', name:'Blu Majik', desc:'Blue spirulina açaí base, pineapple, dragon fruit, granola. Eye-catching & energizing.', price:'$12.99', tag:'Superfood'},
+  {cat:'bowl', mood:'💪 Performance', name:'PowerUp', desc:'Açaí, banana, PB, honey, granola, banana chips. Athlete\'s bowl of choice.', price:'$12.99', tag:'Performance'},
+  {cat:'bowl', mood:'✨ Bless', name:'Bless Your Soul', desc:'Strawberry açaí, mango, coconut, granola, honey. A blessing in a bowl.', price:'$13.99', tag:'Signature'},
+  {cat:'bowl', mood:'🌺 Tropical', name:'Fruit Fiesta', desc:'Mixed tropical fruits, coconut cream, granola, citrus drizzle. Pure paradise.', price:'$13.99', tag:'Tropical'},
+  {cat:'bowl', mood:'🍪 Indulge', name:'Cookie Butter', desc:'Vanilla açaí, cookie butter drizzle, granola, banana. The crowd pleaser.', price:'$11.99', tag:'Crowd Favorite'},
+  {cat:'bowl', mood:'🌟 Classic', name:'Soul Bowl', desc:'Classic açaí, seasonal fruits, granola, honey. The original soul in a bowl.', price:'$11.99', tag:'Classic'},
+];
+
+function filterMenu(cat) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+
+  const grid = document.getElementById('menuGrid');
+  const items = cat === 'all' ? menuItems : menuItems.filter(i => i.cat === cat);
+
+  grid.innerHTML = items.map(item => `
+    <div class="menu-card">
+      <div class="menu-card-mood">${item.mood}</div>
+      <div class="menu-card-name">${item.name}</div>
+      <div class="menu-card-desc">${item.desc}</div>
+      <div class="menu-card-bottom">
+        <div class="menu-card-price">${item.price}</div>
+        <div class="menu-card-tag">${item.tag}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Init menu
+filterMenu('all');
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
