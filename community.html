@@ -9,15 +9,15 @@
 <style>
 :root {
   --orange:#FF5E1A; --orange-dim:rgba(255,94,26,0.15);
-  --purple:#2D0A4E; --purple-mid:#5A2D82; --purple-light:#7B4DB0;
-  --cream:#E8D5B5;
+  --blue:#2563EB; --blue-mid:#3B82F6; --blue-light:#60A5FA;
+  --white:#FFFFFF; --grey:#6B7280;
   --green:#2ECC71; --teal:#00C9A7;
-  --deep:#08020F; --void:#0C0418;
-  --card:rgba(20,8,40,0.85); --glass:rgba(255,255,255,0.04); --glass-b:rgba(255,255,255,0.07);
+  --deep:#0A1628; --void:#0F1C2E;
+  --card:rgba(15,28,46,0.85); --glass:rgba(255,255,255,0.04); --glass-b:rgba(255,255,255,0.07);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;
-  background:linear-gradient(160deg,#150228 0%,#2d0a52 25%,#4e2580 55%,#7a5fa0 80%,#9e8fbf 100%);
+  background:linear-gradient(160deg,#0A1628 0%,#1E3A8A 25%,#2563EB 55%,#60A5FA 80%,#93C5FD 100%);
   background-attachment:fixed;min-height:100%}
 body{font-family:'DM Sans',sans-serif;background:transparent;color:#fff;min-height:100vh}
 body::after{display:none}
@@ -60,7 +60,7 @@ body::after{display:none}
   font-family:'Space Mono'}
 .streak-card{background:var(--card);border:1px solid var(--glass-b);border-radius:10px;padding:20px}
 .streak-num{font-family:'Bebas Neue';font-size:48px;line-height:1;
-  background:linear-gradient(135deg,var(--orange),var(--cream));
+  background:linear-gradient(135deg,var(--orange),var(--white));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .streak-label{font-size:11px;color:rgba(255,255,255,0.35);margin-top:4px;letter-spacing:1px}
 .pillar-badges{display:flex;flex-direction:column;gap:6px}
@@ -93,7 +93,7 @@ body::after{display:none}
 .cat-pill.nutrition{border-color:rgba(0,201,167,0.4)}
 .cat-pill.nutrition.selected{background:rgba(0,201,167,0.12);color:var(--teal)}
 .cat-pill.financial{border-color:rgba(232,213,181,0.4)}
-.cat-pill.financial.selected{background:rgba(232,213,181,0.08);color:var(--cream)}
+.cat-pill.financial.selected{background:rgba(232,213,181,0.08);color:var(--white)}
 .cat-pill.spiritual{border-color:rgba(167,139,250,0.4)}
 .cat-pill.spiritual.selected{background:rgba(167,139,250,0.08);color:#c4b5fd}
 .composer-input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--glass-b);
@@ -132,7 +132,7 @@ body::after{display:none}
 .cat-physical-badge{background:rgba(255,94,26,0.12);color:var(--orange);border:1px solid rgba(255,94,26,0.25)}
 .cat-mental-badge{background:rgba(90,45,130,0.15);color:#a78bfa;border:1px solid rgba(90,45,130,0.3)}
 .cat-nutrition-badge{background:rgba(0,201,167,0.1);color:var(--teal);border:1px solid rgba(0,201,167,0.2)}
-.cat-financial-badge{background:rgba(232,213,181,0.07);color:var(--cream);border:1px solid rgba(232,213,181,0.2)}
+.cat-financial-badge{background:rgba(232,213,181,0.07);color:var(--white);border:1px solid rgba(232,213,181,0.2)}
 .cat-spiritual-badge{background:rgba(167,139,250,0.08);color:#c4b5fd;border:1px solid rgba(167,139,250,0.2)}
 .post-text{font-size:15px;color:rgba(255,255,255,0.72);line-height:1.75;margin:12px 0 20px}
 .post-actions{display:flex;align-items:center;gap:20px;border-top:1px solid var(--glass-b);padding-top:16px}
