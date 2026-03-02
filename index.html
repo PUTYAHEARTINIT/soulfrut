@@ -379,6 +379,11 @@ footer{background:#030106;padding:80px 40px 40px;border-top:1px solid rgba(255,2
   
   /* Community posts compact */
   .comm-post-text{font-size:13px!important;line-height:1.5!important}\
+
+  /* Fruit of the Week mobile */
+  .fotw-grid{grid-template-columns:1fr!important;gap:40px!important}
+  .fotw-benefit{flex-direction:column!important;text-align:center!important}
+  .fotw-menu-items{justify-content:center!important}
   \
   /* Hide verbose campus description on mobile */\
   .phi .s-title + p{display:none!important}
@@ -1340,6 +1345,96 @@ function selectBowl(btn, id) {
 </div>
 </section>
 <!-- COMMUNITY PREVIEW -->
+<!-- FRUIT OF THE WEEK -->
+<section class="fruit-week" id="fruit-week" style="padding:100px 48px;background:linear-gradient(135deg,rgba(10,22,40,0.95) 0%,rgba(37,99,235,0.15) 100%);position:relative;overflow:hidden">
+<div style="position:absolute;inset:0;background:radial-gradient(circle at 20% 50%, rgba(255,94,26,0.08) 0%, transparent 50%),radial-gradient(circle at 80% 50%, rgba(37,99,235,0.08) 0%, transparent 50%);z-index:0"></div>
+<div style="max-width:1200px;margin:0 auto;position:relative;z-index:2">
+<div style="text-align:center;margin-bottom:64px">
+<span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:16px">Knowledge Drop</span>
+<h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,8vw,80px);letter-spacing:3px;color:#fff;margin-bottom:16px">FRUIT OF THE WEEK</h2>
+<p style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:rgba(255,255,255,0.5)">Learn what you're drinking. One fruit at a time.</p>
+</div>
+
+<div class="fotw-grid" style="display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center">
+<!-- LEFT: Fruit Visual + Quick Facts -->
+<div>
+<div style="background:rgba(255,255,255,0.04);border:2px solid rgba(255,94,26,0.3);border-radius:24px;padding:48px;text-align:center;backdrop-filter:blur(10px)">
+<div style="width:200px;height:200px;margin:0 auto 32px;background:linear-gradient(135deg,rgba(255,94,26,0.2) 0%,rgba(37,99,235,0.2) 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:120px;filter:drop-shadow(0 0 40px rgba(255,94,26,0.3))">🥭</div>
+<h3 class="fotw-fruit-name" style="font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:3px;color:var(--orange);margin-bottom:8px">MANGO</h3>
+<p class="fotw-latin" style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.4);margin-bottom:32px">Mangifera indica</p>
+
+<div class="fotw-quick-facts" style="text-align:left;background:rgba(0,0,0,0.3);padding:24px;border-radius:12px">
+<div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,94,26,0.7);margin-bottom:16px">Quick Facts</div>
+<div class="fotw-fact-row" style="display:grid;grid-template-columns:120px 1fr;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.05)">
+<span style="font-size:12px;color:rgba(255,255,255,0.4)">Origin:</span>
+<span class="fotw-origin" style="font-size:13px;color:#fff;font-weight:600">South Asia</span>
+</div>
+<div class="fotw-fact-row" style="display:grid;grid-template-columns:120px 1fr;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.05)">
+<span style="font-size:12px;color:rgba(255,255,255,0.4)">Peak Season:</span>
+<span class="fotw-season" style="font-size:13px;color:#fff;font-weight:600">May - September</span>
+</div>
+<div class="fotw-fact-row" style="display:grid;grid-template-columns:120px 1fr;gap:12px">
+<span style="font-size:12px;color:rgba(255,255,255,0.4)">Taste Profile:</span>
+<span class="fotw-taste" style="font-size:13px;color:#fff;font-weight:600">Sweet, Tropical</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- RIGHT: Benefits + Usage -->
+<div>
+<div style="margin-bottom:40px">
+<h4 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--orange);margin-bottom:20px">HEALTH BENEFITS</h4>
+<div class="fotw-benefits" style="display:grid;gap:16px">
+<div class="fotw-benefit" style="display:flex;gap:16px;background:rgba(255,255,255,0.04);padding:20px;border-radius:12px;border-left:3px solid var(--orange)">
+<span style="font-size:24px">💪</span>
+<div>
+<div class="fotw-benefit-title" style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:6px">Immune System Boost</div>
+<p class="fotw-benefit-desc" style="font-size:13px;line-height:1.6;color:rgba(255,255,255,0.6)">Packed with Vitamin C and A to strengthen your body's defense system and support overall immune function.</p>
+</div>
+</div>
+<div class="fotw-benefit" style="display:flex;gap:16px;background:rgba(255,255,255,0.04);padding:20px;border-radius:12px;border-left:3px solid var(--orange)">
+<span style="font-size:24px">✨</span>
+<div>
+<div class="fotw-benefit-title" style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:6px">Glowing Skin</div>
+<p class="fotw-benefit-desc" style="font-size:13px;line-height:1.6;color:rgba(255,255,255,0.6)">High in antioxidants and beta-carotene that promote collagen production and protect against sun damage.</p>
+</div>
+</div>
+<div class="fotw-benefit" style="display:flex;gap:16px;background:rgba(255,255,255,0.04);padding:20px;border-radius:12px;border-left:3px solid var(--orange)">
+<span style="font-size:24px">🧠</span>
+<div>
+<div class="fotw-benefit-title" style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:6px">Brain Function</div>
+<p class="fotw-benefit-desc" style="font-size:13px;line-height:1.6;color:rgba(255,255,255,0.6)">Contains glutamine acid to improve concentration and memory. Natural energy without the crash.</p>
+</div>
+</div>
+<div class="fotw-benefit" style="display:flex;gap:16px;background:rgba(255,255,255,0.04);padding:20px;border-radius:12px;border-left:3px solid var(--orange)">
+<span style="font-size:24px">🌿</span>
+<div>
+<div class="fotw-benefit-title" style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:6px">Digestive Health</div>
+<p class="fotw-benefit-desc" style="font-size:13px;line-height:1.6;color:rgba(255,255,255,0.6)">Rich in dietary fiber and digestive enzymes that support gut health and smooth digestion.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div>
+<h4 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--orange);margin-bottom:20px">IN OUR MENU</h4>
+<div class="fotw-menu-items" style="display:flex;flex-wrap:wrap;gap:12px">
+<span class="fotw-menu-item" style="background:linear-gradient(135deg,rgba(255,94,26,0.2) 0%,rgba(255,94,26,0.1) 100%);border:1px solid rgba(255,94,26,0.3);padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;color:#fff;font-family:'DM Sans',sans-serif">Tropical Sunrise Bowl</span>
+<span class="fotw-menu-item" style="background:linear-gradient(135deg,rgba(255,94,26,0.2) 0%,rgba(255,94,26,0.1) 100%);border:1px solid rgba(255,94,26,0.3);padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;color:#fff;font-family:'DM Sans',sans-serif">Mango Madness Smoothie</span>
+<span class="fotw-menu-item" style="background:linear-gradient(135deg,rgba(255,94,26,0.2) 0%,rgba(255,94,26,0.1) 100%);border:1px solid rgba(255,94,26,0.3);padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;color:#fff;font-family:'DM Sans',sans-serif">Island Vibes Blend</span>
+</div>
+</div>
+</div>
+</div>
+
+<div style="margin-top:48px;text-align:center;padding:32px;background:rgba(255,94,26,0.1);border:1px dashed rgba(255,94,26,0.3);border-radius:12px">
+<p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5)">Updated Weekly · Follow for Next Week's Feature</p>
+</div>
+</div>
+</div>
+</section>
+
 <section class="comm-prev" id="community">
 <div class="pillars-header">
 <span class="s-eye">The Community</span>
