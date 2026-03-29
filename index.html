@@ -1232,9 +1232,10 @@ function selectBowl(btn, id) {
 <div class="prod-waitlist">
 <p class="prod-waitlist-sub">Be the first to know when we launch. Early access  members only.</p>
 <div class="waitlist-form">
-<input class="waitlist-input" placeholder="your@email.com" type="email"/>
-<a class="btn p" href="#" style="border-radius:100px;padding:14px 28px;font-size:13px;white-space:nowrap">Join Waitlist</a>
+<input class="waitlist-input" id="waitlist-email" placeholder="your@email.com" type="email"/>
+<button class="btn p" onclick="submitWaitlist()" style="border-radius:100px;padding:14px 28px;font-size:13px;white-space:nowrap;border:none;cursor:pointer" id="waitlist-btn">Join Waitlist</button>
 </div>
+<p id="waitlist-message" style="margin-top:12px;font-size:13px;color:var(--orange);display:none"></p>
 </div>
 </section>
 <!-- BEYOND THE CUP -->
@@ -1306,7 +1307,7 @@ function selectBowl(btn, id) {
 <li>Quarterly catered wellness days  in person activations</li>
 <li>Custom corporate Soul Box subscriptions for entire teams</li>
 </ul>
-<a class="btn p" href="mailto:hello@soulfrut.com" style="border-radius:100px;padding:16px 36px">Request a Corporate Proposal</a>
+<a class="btn p" href="mailto:hello@soulfrutblendbar.com" style="border-radius:100px;padding:16px 36px">Request a Corporate Proposal</a>
 </div>
 <div class="corp-right">
 <div class="corp-stat-grid">
@@ -1709,5 +1710,50 @@ function selectBowl(btn, id) {
 </div>
 <div class="fb"><p>2026 SOUL FRUT / ALL RIGHTS RESERVED</p><div class="sr"><a class="sb" href="#">IG</a><a class="sb" href="#">TT</a><a class="sb" href="#">X</a></div></div>
 </footer>
+<script>
+async function submitWaitlist() {
+  const emailInput = document.getElementById('waitlist-email');
+  const btn = document.getElementById('waitlist-btn');
+  const msg = document.getElementById('waitlist-message');
+  const email = emailInput.value.trim();
+  if (!email || !email.includes('@')) {
+    msg.textContent = 'Please enter a valid email address';
+    msg.style.color = '#ff4444';
+    msg.style.display = 'block';
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = 'Joining...';
+  try {
+    const response = await fetch('/api/waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    const data = await response.json();
+    if (response.ok) {
+      msg.textContent = '✓ You\'re on the list! Check your email soon.';
+      msg.style.color = 'var(--orange)';
+      msg.style.display = 'block';
+      emailInput.value = '';
+      btn.textContent = 'Joined!';
+      setTimeout(() => { btn.textContent = 'Join Waitlist'; btn.disabled = false; }, 3000);
+    } else {
+      throw new Error(data.error || 'Something went wrong');
+    }
+  } catch (error) {
+    msg.textContent = 'Oops! Please try again.';
+    msg.style.color = '#ff4444';
+    msg.style.display = 'block';
+    btn.textContent = 'Join Waitlist';
+    btn.disabled = false;
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('waitlist-email');
+  if (input) { input.addEventListener('keypress', function(e) { if (e.key === 'Enter') { submitWaitlist(); } }); }
+});
+</script>
+
 </body>
 </html>
