@@ -1069,6 +1069,119 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
   }
 }
 
+/* Fruit of the Week Styles */
+.fotw {
+  padding: 120px 5%;
+  background: #0A0514;
+  position: relative;
+}
+
+.fotw-header {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: var(--orange);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.fotw-stat-box {
+  padding: 12px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 8px;
+}
+
+.fotw-stat-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 4px;
+}
+
+.fotw-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.fotw-stat-desc {
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+
+.fotw-info-card {
+  background: rgba(255,255,255,0.04);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,94,26,0.2);
+  margin-bottom: 40px;
+}
+
+.fotw-info-item {
+  margin-bottom: 16px;
+}
+
+.fotw-info-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.fotw-info-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+
+.fotw-highlight-box {
+  padding: 12px;
+  background: rgba(255,94,26,0.1);
+  border-radius: 8px;
+  border-left: 3px solid var(--orange);
+  margin-top: 16px;
+}
+
+.fotw-icon-row {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+}
+
+.fotw-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.fotw-menu-item {
+  background: linear-gradient(135deg, rgba(255,94,26,0.2) 0%, rgba(255,94,26,0.1) 100%);
+  border: 1px solid rgba(255,94,26,0.3);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+.fotw-cta-box {
+  margin-top: 48px;
+  text-align: center;
+  padding: 32px;
+  background: rgba(255,94,26,0.1);
+  border: 1px dashed rgba(255,94,26,0.3);
+  border-radius: 12px;
+}
+
+.fotw-cta-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
 </style>
 </head>
 <body>
@@ -1246,7 +1359,7 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
 <!-- RIGHT: Benefits + Usage -->
 <div>
 <div style="margin-bottom:40px">
-<h4 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--orange);margin-bottom:20px">HEALTH BENEFITS</h4>
+<h4 class="fotw-header">HEALTH BENEFITS</h4>
 <div class="fotw-benefits" style="display:grid;gap:16px">
 <div class="fotw-benefit" style="display:flex;gap:16px;background:rgba(255,255,255,0.04);padding:20px;border-radius:12px;border-left:3px solid var(--orange)">
 <span style="font-size:24px">💪</span>
@@ -1280,8 +1393,8 @@ nav,section,.hero,.mq-wrap,.phi,.pillars,.menu,.bots,.bowls,.proof,.finale,foote
 </div>
 
 <div style="margin-bottom:40px">
-<h4 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--orange);margin-bottom:20px">DETAILED NUTRITION</h4>
-<div style="background:rgba(255,255,255,0.04);padding:24px;border-radius:12px;border:1px solid rgba(255,94,26,0.2)">
+<h4 class="fotw-header">DETAILED NUTRITION</h4>
+<div class="fotw-info-card">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
 <div style="padding:12px;background:rgba(0,0,0,0.3);border-radius:8px">
 <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px">Vitamin C</div>
@@ -1781,26 +1894,26 @@ function selectBowl(btn, id) {
 </div>
 
 <div style="margin-bottom:40px">
-<h4 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--orange);margin-bottom:20px">AYURVEDIC & HOLISTIC</h4>
-<div style="background:rgba(255,255,255,0.04);padding:24px;border-radius:12px;border:1px solid rgba(255,94,26,0.2)">
+<h4 class="fotw-header">AYURVEDIC & HOLISTIC</h4>
+<div class="fotw-info-card">
 <div style="margin-bottom:16px">
-<div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:6px">Ayurvedic Classification</div>
-<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6">Sweet, cooling, grounding — Kapha-reducing, Pitta-pacifying. Reduces excess heat and inflammation while maintaining digestive balance.</div>
+<div class="fotw-info-title">Ayurvedic Classification</div>
+<div class="fotw-info-text">Sweet, cooling, grounding — Kapha-reducing, Pitta-pacifying. Reduces excess heat and inflammation while maintaining digestive balance.</div>
 </div>
 <div style="margin-bottom:16px">
-<div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:6px">Traditional Chinese Medicine</div>
-<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6">Tonifies Stomach Qi, clears heat, generates body fluids. Supports digestive fire without creating excess yang.</div>
+<div class="fotw-info-title">Traditional Chinese Medicine</div>
+<div class="fotw-info-text">Tonifies Stomach Qi, clears heat, generates body fluids. Supports digestive fire without creating excess yang.</div>
 </div>
 <div>
-<div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:6px">Energetic Temperature</div>
-<div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6">Cooling — ideal for summer heat and overheated conditions.</div>
+<div class="fotw-info-title">Energetic Temperature</div>
+<div class="fotw-info-text">Cooling — ideal for summer heat and overheated conditions.</div>
 </div>
 </div>
 </div>
 
 <div style="margin-bottom:40px">
-<h4 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--orange);margin-bottom:20px">SPIRITUAL & METAPHYSICAL</h4>
-<div style="background:rgba(255,255,255,0.04);padding:24px;border-radius:12px;border:1px solid rgba(255,94,26,0.2)">
+<h4 class="fotw-header">SPIRITUAL & METAPHYSICAL</h4>
+<div class="fotw-info-card">
 <div style="display:grid;gap:12px">
 <div style="display:flex;gap:12px;align-items:start">
 <span style="font-size:20px">☀️</span>
@@ -1831,7 +1944,7 @@ function selectBowl(btn, id) {
 </div>
 
 <div style="margin-bottom:40px">
-<h4 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--orange);margin-bottom:20px">WAYS TO CONSUME</h4>
+<h4 class="fotw-header">WAYS TO CONSUME</h4>
 <div style="display:grid;gap:16px">
 <div style="background:rgba(255,255,255,0.04);padding:20px;border-radius:12px;border:1px solid rgba(255,94,26,0.2)">
 <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:12px">🥗 Fresh</div>
@@ -1849,18 +1962,18 @@ function selectBowl(btn, id) {
 </div>
 
 <div>
-<h4 style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--orange);margin-bottom:20px">IN OUR MENU</h4>
+<h4 class="fotw-header">IN OUR MENU</h4>
 <div class="fotw-menu-items" style="display:flex;flex-wrap:wrap;gap:12px">
-<span class="fotw-menu-item" style="background:linear-gradient(135deg,rgba(255,94,26,0.2) 0%,rgba(255,94,26,0.1) 100%);border:1px solid rgba(255,94,26,0.3);padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;color:#fff;font-family:'Bebas Neue',sans-serif
-<span class="fotw-menu-item" style="background:linear-gradient(135deg,rgba(255,94,26,0.2) 0%,rgba(255,94,26,0.1) 100%);border:1px solid rgba(255,94,26,0.3);padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;color:#fff;font-family:'Bebas Neue',sans-serif
-<span class="fotw-menu-item" style="background:linear-gradient(135deg,rgba(255,94,26,0.2) 0%,rgba(255,94,26,0.1) 100%);border:1px solid rgba(255,94,26,0.3);padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;color:#fff;font-family:'Bebas Neue',sans-serif
+<span class="fotw-menu-item">FRUIT FIESTA</span>
+<span class="fotw-menu-item">GOLDEN SOUL</span>
+<span class="fotw-menu-item">THE WAKE UP CALL</span>
 </div>
 </div>
 </div>
 </div>
 
-<div style="margin-top:48px;text-align:center;padding:32px;background:rgba(255,94,26,0.1);border:1px dashed rgba(255,94,26,0.3);border-radius:12px">
-<p style="font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5)">Updated Weekly · Follow for Next Week's Feature</p>
+<div class="fotw-cta-box">
+<p class="fotw-cta-text">Updated Weekly · Follow for Next Week's Feature</p>
 </div>
 </div>
 </div>
